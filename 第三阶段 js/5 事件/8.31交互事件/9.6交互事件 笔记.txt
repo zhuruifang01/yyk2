@@ -1,0 +1,102 @@
+﻿一、事件驱动：
+  1、事件源：事情发生在谁的身上,谁就是事件源
+  2、事件
+  3、事件处理程序：函数程序，事情怎么实现的
+二、鼠标
+  单击：onclick
+  双击：ondblclick
+  移入：onmouseover
+  移出：onmuuseout
+  按下：onmousedown
+  抬起：onmouseup
+  移动：onmousemove
+  滚轮（兼容问题）
+三、事件添加（绑定）的格式：
+  事件源(对象).事件(onclick)=function(){
+   做什么事情
+  }
+
+四、键盘：
+  按下：onkeydown
+  抬起：onkeyup
+  长按：onkeypress
+
+五、window对象：[用于自动检测的事件]
+  等待文档加载完成：onload
+  检测窗口大小是否发生变化的事件：onresize
+
+六、表单：
+  获得焦点：onfocus
+  失去焦点：onblur
+//=========================================================
+9.6
+一、事件绑定：【3种】
+  1. onclick=function(){};
+  2. <div onclick=" "></div>
+
+  3.同一个事件源 绑定多个事件： 
+    FF: 
+      对象.addEventListener("mouseover",事件处理程序，false);  【添加】
+      对象.removeEventListener("mouseover",事件处理程序，false); 【移除】
+    IE: 
+      对象.attachEvent("onmouseover",事件处理程序);
+      对象.datachEvent("onmouseover",事件处理程序);
+    解决兼容：调用addEvent函数 【绑定】
+              调用removeEvent   【移除】
+
+二、事件对象：
+   事件发生的时候产生，记录事件发生以后的一些信息(键盘、鼠标)
+三、事件对象的获取(只能在事件内部获取)：
+   IE：  bigbox.onmouseover=function(){
+           e=window.event 
+           alert(e);
+        }
+   FF:  bigbox.onmouseover=function(e){
+           alert(e);   //这个参数e就是 事件对象(鼠标)
+        }
+
+  兼容： bigbox.onmouseover=function(e){
+           e=e||window.event;
+           alert(e);
+        }
+
+
+1）记录事件对象到浏览器的距离
+    e.clientX
+    e.clientY
+
+2)记录事件对象到屏幕的距离
+    e.screenX;
+    e.screenY;
+
+3)记录事件对象到事件源的距离
+    e.offsetX;
+    e.offsetY;
+ 
+ 4）事件对象属性：
+   【滚轮方向】
+    事件对象.wheelDelta 【FF】（120向上，-120向下）
+    事件对象.detail   【IE】 (-3向上，3向下)
+
+   兼容函数：mouseWheel(obj,up,down)
+
+
+***清除：
+  box.onmouseup=null;
+  box.onmousemove=null;
+
+***阻止浏览器的默认行为：
+   if(e.preventDefault){    //w3c
+    e.preventDefault();
+    }else{
+     e.returnValue=false; //IE
+    }
+================================
+9.8笔记
+ 5）事件对象属性：
+   事件对象.fromElement  //鼠标从哪里来  IE
+
+   事件对象.toElement    //鼠标到哪里去  IE
+   事件对象.relatedTarget  //鼠标从哪里来,到哪里去 FF
+
+   解决兼容：函数 hover(obj,overfun,outfun);

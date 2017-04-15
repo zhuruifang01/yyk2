@@ -1,0 +1,193 @@
+一、
+  函数：就是会执行一个特定的功能。
+      将能实现某些功能的代码集合起来，方便以后重复调用的代码块。
+
+   关键字：function sum() {函数体}
+     调用： sum();
+
+二、优点：
+    程序更加简洁；
+    逻辑更加调理；
+    调用更加方便；
+    维护更加容易；
+
+三、函数的创建：【先解析到内存中，备用】  
+    声明方式：
+   法一： function aa() {函数体;}
+    调用： aa();
+
+   法二：字面量（直接量）形式（将函数保存在aa中）
+         匿名函数
+         var aa=function(){}
+     调用： aa();
+   法三：用对象
+         var aa=new Function("函数体")
+
+
+补：m=undefined||5;【undefined是假，所以执行5】 
+                   【未传值的时候默认是5】
+
+    var a=0&&2  【a=0】
+    var a=1&&2  【a=2】
+========================================
+四：调用方法：
+法一：直接调用【函数名+（）】：biaoge(a);
+法二：自调用：---用于匿名函数
+       (function(){})()
+   或：!function(){}
+   注释；第一个()表示优先运算，第二个()表示调用
+法三：事件触发：
+   <div class="box" onclick="函数体"></div>
+                    onmouseover=""
+                    onmouseout=""
+================================================= 
+
+五：arguments对象上是参数的一些数据  
+
+     arguments[4];   // 函数具体位置 参数的数值
+     arguments.length;  //          函数参数的长度
+     arguments.callee;  //   函数本身
+ ===============================
+六：函数的重载：
+  当函数名一样，传入参数的 (个数)及(类型)不一样的时候，分别执行不同的函数体。
+
+  aa(1);
+  aa(1,2);
+  aa("1","2");
+
+  【参数个数：arguments.length;
+    参数类型：typeof aa;】
+
+ 七、返回值 return：
+    (1) 终止函数执行且返回return后面的数据;
+
+    (2)【不写return时，返回undefined】
+
+    (3)return 2,3,4;  【覆盖。返回4】
+ 
+八、函数的作用域；【全局变量】【局部变量】
+     函数外的数据能被内部使用。内部的不可被外部使用。
+     内外都定义了，内部起作用；
+     变量前未加var，则为全局变量。
+    【作用域链】
+
+    全局变量：函数外部定义的变量；或 没有用var申明的变量。
+    局部变量：    内部          ，函数里的参数都是局部变量。
+
+
+九：解析字符串内的代码
+    eval（"alert(1)";
+====================================
+十、回调函数：
+  将一个函数当做参数，传入到另一个函数中使用。
+  作用：同一时间同时进行多个功能
+ 两种形式：
+（1.函数指针）
+   function aa (fun){       //fun=bb
+    fun();                  //bb();
+    }
+  function bb(){
+     console.log(1);
+   }
+
+  aa(bb);
+
+     例：
+      function main(a,b,fun){
+        return fun(a,b)
+        }
+
+      function jia(a,b){
+      return a+b;
+        }
+     alert(main(34,56,jia));
+
+（2.函数的定义作为参数传递进去）
+   
+    function main(a,b,fun){
+     return fun(a,b)
+     }
+
+  alert(main(34,56,function jia(a,b){return a+b;}));
+
+
+
+============================  
+十一、递归函数：
+    自己调用自己
+
+    function jiecheng(n){
+     if(n==1){
+     return 1;
+     }
+     else {
+     return n*jiecheng(n-1);
+     }
+   }
+
+   var result=jiecheng(5);
+   console.log(result);
+
+十二、闭包函数：嵌套函数中 内嵌函数要被外部函数外的变量引用的过程
+    作用：可以在函数外面访问局部变量；
+          可以将局部变量保存下来。
+
+     function aa(){
+       var num=4;
+      function bb(){
+        return num;
+       }
+      return bb;
+     }
+     console.log( aa()()   );
+
+ 
+ 形参： 定义时，括号里所定义的变量参数
+
+===============================================
+内置顶层函数：
+1、var a=confirm("你确定要继续吗？");
+  if(a){
+   alert("请继续");
+     }
+  else{
+   alert("真遗憾"); 
+ }
+
+(2.编码，反编码)
+    var str="朱瑞芳"
+    document.write(escape(str));   编码
+    document.write(unescape());    反编码
+(3.) 
+    //隐式转换（两边类型不一样时用自动转化）
+ 1.   console.log(String(123));
+
+ 2.   console.log(Boolean());   【 false， number 0，string"",undefined,null,NaN 均为假】
+
+ 3.   console.log(Number("undifined"));//NaN
+      Number(true);//为1
+      Number(null);//为0
+      Nunber("true");//为NaN
+
+ 4. console.log(parseInt(1000,2)); //转化为整数(1000表示数，2表示进制)
+    console.log(parseFloat("12.12.67")); //转化为浮点型数字12.12
+    
+    console.log(isNaN("a123"));
+    
+    console.log(parseInt(123.123));//浮点型取整(去尾)
+================================    
+补充：
+参数的访问方式：
+ 法一：用形参接受实参
+      function cheng(num1,num2){
+      alert(num1*num2);
+      }
+
+      cheng(10,200);
+ 法二：用arguments对象
+   function cheng()
+     {
+    alert(arguments[0]*arguments[1]);
+     }
+   cheng(10,200);
+

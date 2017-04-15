@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>跑马灯动效(节点轮播banner)</title>
+	<script src="js/function.js"></script>
+	<script src="js/animate.js"></script>
+</head>
+<style>
+	.banner{
+		width:1030px;
+		height:300px;
+		border:5px solid #333;
+		margin:0 auto;
+		overflow:hidden;
+		position:relative;
+	}
+	.imgbox{
+		width:1300px;
+		height:300px;
+		background-color:#ccc;
+	}
+	.imgbox div{
+		width:250px;
+		height:100%;
+		margin-right: 10px;
+		float:left;
+		font-size:50px;
+		text-align:center;
+		line-height:300px;
+		overflow:hidden;
+	}
+	.btn{
+		width:50px;
+		height:80px;
+		background-color:black;
+		position:absolute;
+		top:0;
+		bottom:0;
+		margin:auto 0;
+		color:white;
+		font-size:50px;
+		line-height:80px;
+		text-align:center;
+		display:none;
+	}
+	.leftbtn{left:0;}
+	.rightbtn{right:0;}
+</style>
+<script>
+	$(function(){
+     function bannerlnubo(index){     //封装成一个函数。其他banner均可调用
+	 var imgbox=$(".imgbox")[index];
+	 var banner=$(".banner")[index];
+	 var leftbtn=$(".leftbtn")[index];
+	 var rightbtn=$(".rightbtn")[index];
+	  function moveleft(){
+	  	var first=getFirst(imgbox);  //1.时间一到，获取第一个div
+        var len=getChild(imgbox).length;  //div的个数 5
+        //alert(len);
+      	var w=getStyle(first,"width");  //每个div的宽度
+      	// alert(w);
+      	imgbox.style.width=len*(w+10)+"px"; //imgbox的宽度设置  1300
+
+		animate(first,{width:0},function(){   //2.第一个div宽度变0
+		     imgbox.appendChild(first);          //3.放到imgbox的最后一个div的后面
+		     first.style.width="250px";});          //4.恢复div的宽度
+          }
+      var t=setInterval(moveleft,2000);
+      banner.onmouseover=function(){
+      	clearInterval(t);
+      	leftbtn.style.display="block";
+      	rightbtn.style.display="block";
+      }
+      banner.onmouseout=function(){
+      	t=setInterval(moveleft,2000);
+        leftbtn.style.display="none";
+      	rightbtn.style.display="none";
+      }
+      leftbtn.onclick=function(){ moveleft();}
+      rightbtn.onclick=function(){
+      	var last=getLast(imgbox);
+      	last.style.width=0;
+      	imgbox.insertBefore(last,getFirst(imgbox));
+      	animate(last,{width:250});
+      }
+
+       }
+
+    for (var i = 0; i <3; i++) {   //循环调用跑马灯banner函数
+        bannerlnubo(i);
+    };
+    
+     });
+</script>
+<body>
+	<div class=banner>
+       <div class="imgbox">
+			<div style="background:pink">1</div>
+			<div style="background:red">2</div>
+			<div style="background:green">3</div>
+			<div style="background:yellow">4</div>
+			<div style="background:plum">5</div>
+		</div>
+		<div class="btn leftbtn">&lt</div>
+		<div class="btn rightbtn">&gt</div>
+	</div>
+    <br/>
+	<div class=banner>
+       <div class="imgbox">
+			<div style="background:pink">1</div>
+			<div style="background:red">2</div>
+			<div style="background:green">3</div>
+			<div style="background:yellow">4</div>
+			<div style="background:plum">5</div>
+		</div>
+		<div class="btn leftbtn">&lt</div>
+		<div class="btn rightbtn">&gt</div>
+	</div>
+    </br>
+	<div class=banner>
+       <div class="imgbox">
+			<div style="background:pink">1</div>
+			<div style="background:red">2</div>
+			<div style="background:green">3</div>
+			<div style="background:yellow">4</div>
+			<div style="background:plum">5</div>
+		</div>
+		<div class="btn leftbtn">&lt</div>
+		<div class="btn rightbtn">&gt</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,1050 @@
+               /*初始化开始*/
+body,p,ul,ol,dl,li,dt,dd,h1,h2,h3,h4,h5,h6,form,input
+ {padding: 0;
+  margin: 0;
+  list-style: none;
+  font-weight: normal;
+ }
+a{
+	text-decoration: none;
+ }
+img{
+	border:0;
+}
+                /*第一层：head部分开始*/
+ .header
+  {
+  	width: 100%;
+  	height: 24px;
+  	border: 1px solid #ececec;
+  	background: #f6f6f6;
+    min-width: 1200px;
+  }
+  .head_con
+  {
+    width: 1200px;
+    height: 24px;
+/*    background: red;
+*/    margin: 0 auto;
+   }
+   .head_leftone
+   {
+    width: 71px;
+    height: 24px;
+    border-right: 1px solid #ececec;
+/*    background: green;
+*/    float: left;
+   }
+   .head_lefttwo
+   {
+    width: 71px;
+    height: 24px;
+    border-right: 1px solid #ececec;
+    /*background: yellow;*/
+    float: left;
+   }
+      .ENGLISH
+      {
+       font-size: 8px;
+       color:#88A3BF;
+       line-height:24px;
+      }
+      .zqkh
+      {
+       font-size: 8px;
+       color:#88A3BF;
+       line-height:24px;
+       margin-left: 12px; 
+      }
+   .head_right
+   {
+    width: 330px;
+    height: 24px;
+    border-right: 1px solid #ececec;
+    /*background: green;*/
+    float: right;
+   
+   }
+      .load{
+         font-size: 8px;
+         color:red;
+         line-height:24px;
+         margin-left: 12px; 
+           }
+
+      .guanyu{
+            font-size: 8px;
+            color:#88A3BF;
+           line-height:24px;
+            }
+  .head_leftone a:hover{color:#25c0fb;}
+  .head_lefttwo a:hover{color:#25c0fb;}
+  .head_right a:hover{color:#25c0fb;}               
+                /*第一层：head部分结束*/
+                /*第二层：logonav部分开始*/
+ .logonav
+   {
+     width: 1200px;
+     height: 92px;
+    /* background:#000;*/
+     margin: 0 auto;
+
+   }
+   .logonav_left
+   {
+     width:303px;
+     height:92px;
+   /*  background:yellow;*/
+     float:left; 
+     line-height: 92px;
+     font-size: 14px;
+     font-weight: bold;
+
+   }
+   .logonav_left img
+     {
+      float: left;
+     }
+   .logo_xian
+    {
+      height: 32px;
+      width: 0px;
+      border-left: 1px solid #ececec;
+      float: left;
+      line-height: 92px;
+      margin-top:30px; 
+   }
+    .logonav .logo_img
+     {
+       position: absolute;
+       left: 369px;
+       top:63px;
+
+     }
+/* 右边开始*/
+
+    .logonav_right
+   {
+     width: 624px;
+     height: 92px;
+    
+     float:right; 
+
+   }
+ /*右上控件*/
+   .logonav_right_top
+    { width: 576px;
+      height: 38px;
+     
+      margin-top: 16px;
+    }
+   #llb
+    {
+      width: 481px;
+      height: 36px;
+      border:1px solid #DFDFDF;
+      float:left;
+      padding-left: 10px;
+      color: #666666;
+      font-weight: bold;
+    }
+   #sousuo
+    {
+       width: 83px;
+       height: 38px;
+       float:left;
+       color: blue;
+    }
+/*右下文字*/  
+  .guomang
+     {
+      font-size: 11px;
+      color:#E30077;
+      float: left;
+     /* line-height: 31px; */
+      margin-top:12px;
+     }
+  .r_bottomfont
+     {
+      margin-left: 20px;
+      font-size: 11px;
+      color:#666666;
+      float: left;
+     /* line-height: 31px;*/
+      margin-top: 12px;
+     }
+
+  .right_bottom a:hover{color:#25c0fb;}
+                 
+                /*第二层：logonav部分结束*/
+                 /*第三层：banner部分开始*/
+ .banner_outbox
+ {
+   width:1202px;
+   height:397px;
+  /* background: red;*/
+   margin: 0px auto; 
+   margin-bottom: 12px;
+  }
+/* banner头部样式*/
+ .banner_box_header
+  {
+    width: 1202px;
+    height: 47px;
+    background: white;
+   }
+  .banner_box_headerA
+   {
+     width: 160px;
+     height: 40px;
+     background:#E4E4E4;
+     text-align: center;
+     border-top: 2px solid #0085D0;
+     float:left;
+   } 
+   .banner_box_headerB
+   {
+     width: 259px;
+     height: 42px;
+     background:#E4E4E4;
+     text-align: center;
+     border-left: 1px solid #fff;
+     float:left;
+   } 
+
+ .banner_box_header a
+   {  font-size: 18px;
+      color:#000;
+      line-height:42px;
+   }
+ .banner_box_headerA .ban_index
+     {
+       font-size: 18px;
+       font-weight: bold;
+       color:#0085D0;
+       line-height:42px;
+      }
+
+/* banner左中右样式*/
+ .banner_box_bottom
+     {
+       width:1202px;
+       height:349px;
+       
+     }
+     /*banner左*/
+ .ban_bot_left 
+   {
+     width: 159px;
+     height:348px;
+     border: 1px solid #B8D9E9;
+     text-align: center;
+     float: left;
+
+   }
+
+ .ban_bot_leftone
+   {width: 140px;
+   	height:33px;
+   	margin:0 auto;
+   	line-height: 33px;
+   }
+   .ban_bot_lefttwo
+    {width: 140px;
+   	height:62px;
+   	margin:0 auto;
+   	border-top: 1px solid #E4E4E4;
+   	line-height: 62px;
+     } 
+
+    .ban_bot_lefttwo  .a{display: block;}
+    a{color: #333333;}
+    a:hover{color:#25c0fb;}
+
+     /*banner中 */
+
+    .ban_bot_center
+    { width: 741px;
+      height:346px;
+      float:left;
+      margin-left:10px;
+      margin-right: 10px;
+      position: relative;
+      }
+      /*轮播小圆点*/
+    .ban_bot_center ul
+     {  
+      position:absolute;
+      left:300px;
+      bottom: 7px;
+
+     }
+     .ban_bot_center ul li
+     {
+      width:15px;
+      height: 15px;
+      background:#B6C8CC;
+      float: left;
+      margin-right:4px; 
+      border-radius:50%;
+     }
+      .ban_bot_center ul .licircle
+     {
+      width:15px;
+      height: 15px;
+      background:#CB1B83;
+      float: left;
+      margin-right:4px; 
+      border-radius:50%;
+     }
+
+    /*banner右 */
+     .ban_bot_right
+      {
+        width: 278px;
+        height:347px;
+        border:1px solid #E4E4E4;
+        float:left;
+      }
+    .ban_bot_right ul
+     {
+      width:278px;
+      height:149px;
+      margin-bottom:31px;
+      }
+     .ban_bot_right ul li
+     {
+      width:92px;
+      height:73px;
+      float: left;
+      text-align: center;
+       }
+    .ban_bot_right ul li img
+       {
+         margin: 21px auto 0px;
+       }
+    .ban_bot_right ul a
+       {display: block;
+        font-size: 11px;
+        color:#4E4E4E;}
+/*  充值交费*/
+
+    .czjf
+      { color:#333333;
+        font-size: 13px;
+        margin-left: 15px;
+        font-weight:bold;
+
+      }
+    .czjfprice
+      {
+        font-size: 14px;
+        margin-left: 128px;
+        font-weight:bold;
+        color:red;
+
+      }
+ /*请输入手机号码*/
+  #ban_right_number
+   {
+    width: 246px;
+    height: 33px;
+    border:1px solid #EFEFEF;
+    margin:12px 11px;
+    padding-left: 4px;
+    font-size:11px;
+    color:#B9B9B9;
+   }
+ /*选择50.100.300元*/
+  .ban_bot_right ul.ban_right_price
+   {width: 257px;
+    height: 35px;
+    margin:0 auto;
+   } 
+  .ban_bot_right ul.ban_right_price li
+   {width:45px;
+    height:33px;
+    border:1px solid #EFEFEF;
+    margin-right:4px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 11px;
+   }
+  .ban_right_price li.price100{
+    background:#E40077;
+  }
+   /*立即充值*/
+  .ban_right_ljcz{
+     width:90px;
+     height:35px;
+     background:#33ACFB;
+     font-size: 14px;
+     color: white;
+     margin: 0 auto;
+     margin-top: 17px;
+     text-align: center;
+     line-height: 35px;
+   }
+  .ban_bot_right a:hover{
+    color:#25c0fb;
+  }
+  .ban_right_price li:hover{
+      background-color: #E40077;
+  }                
+                /*第三层：banner部分结束*/
+               /* 第四层；活动内容部分 开始*/
+
+               
+ .action_out
+ {
+   width: 1172px;
+   height:160px;
+   margin:0px auto;
+   margin-top:12px;
+   margin-bottom:12px;
+   border-left:15px solid #DFDFDF; 
+   border-right:15px solid #DFDFDF; 
+   border-top:10px solid #DFDFDF; 
+   border-bottom:10px solid #DFDFDF; 
+ }
+  /*左右箭头*/
+ .action_img_left
+  {float: left;
+  	margin-top:60px;}
+ .action_img_right
+  {float: right;
+   margin-top:60px;}
+  /*滑动区域*/
+ .act_one
+  {width:245px;
+   height:149px;
+   padding-top: 11px;
+   background-color:white;
+   border-right:10px solid #DFDFDF;
+   background-image:url(../img/fuK.jpg);
+   background-position: bottom right;
+   background-repeat: no-repeat;
+   float: left;
+  }
+  .act_two
+  {width:253px;
+   height:149px;
+   padding-top: 11px;
+   padding-left: 20px;
+   background-color:white;
+   border-right:10px solid #DFDFDF;
+   background-image:url(../img/zix.jpg);
+   background-position: bottom right;
+   background-repeat: no-repeat;
+   float: left;
+   }
+   .act_three
+  {width:253px;
+   height:149px;
+   padding-top: 11px;
+   padding-left: 20px;
+   background-color:white;
+   border-right:10px solid #DFDFDF;
+   background-image:url(../img/three.jpg);
+   background-position: bottom right;
+   background-repeat: no-repeat;
+   float: left;
+   }
+   .act_four
+  {width:253px;
+   height:149px;
+   padding-top: 11px;
+   padding-left: 20px;
+   background-color:white;
+   border-right:10px solid #DFDFDF;
+   background-image:url(../img/four.jpg);
+   background-position: bottom right;
+   background-repeat: no-repeat;
+   float: left;
+   }
+   .act_five
+  {width:14px;
+   height:149px;
+   padding-top: 11px;
+
+   background-color:white;
+   float: left;
+   }
+   .action_out a
+    {font-size:21px;
+     font-weight:bold;}
+    .action_out span
+    {
+    	font-size:14px;
+    	margin-top: 8px;
+    }
+
+    .action_out .act_one a
+      {
+      	margin-left: -53px;
+      }
+    .action_out .act_one span
+     {
+     	margin-left: -33px;
+     }
+   .action_out .act_five a
+      {
+      	margin-left: 30px;
+      }
+    .action_out .act_five span
+     {
+     	margin-left: 31px;
+     }
+
+     .action_out
+      {overflow: hidden;}
+          /* 第四层；活动内容部分 结束*/
+          /* 第五层：4G专区开始*/
+
+.content_4Garea
+     {width: 1200px;
+      height: 425px;
+      border: 1px solid #DFDFDF;
+      margin:0 auto;
+     }
+.Garea_head
+     {width: 100%;
+      height:47px;
+      border-bottom: 1px solid #DFDFDF;
+     }
+.head_title
+     {font-size: 14px;
+      color:#0085D0;
+      font-weight: bold;
+      margin-left: 25px;
+      line-height:46px;
+     }
+.head_more
+     {
+      font-size: 12px;
+      color:#666666;
+      margin-left: 1038px;
+      line-height:17px;
+     }
+
+.Ghe{
+	width:300px;
+    height:377px;
+    background-image: url(../img/4g.jpg);
+    background-repeat: no-repeat;
+    float: left;
+   }
+.Ginternet
+   {
+   	width:300px;
+    height:188px;
+    background-color: white;
+    background-image: url(../img/4G上网套餐.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    float: left;
+   }
+     .internet{font-size: 17px;
+               color:#000;
+               font-weight: bold;
+               margin-left: 25px;
+               line-height:36px;
+              }
+
+     .internettwo{font-size: 13px;
+                  color:#000;
+                  margin-left: 25px;
+              
+                 }
+     .taocanone{font-size: 17px;
+               color:#E40077;
+               font-weight: bold;
+               margin-left: 25px;
+               line-height:36px;
+              }
+
+     .taocantwo{font-size: 13px;
+                  color:#8E8E8E;
+                  margin-left: 25px;
+              
+                 }
+.Gtaocan
+   {
+   	width:298px;
+    height:187px;
+     border-left:  1px solid #DFDFDF;
+     border-right:  1px solid #DFDFDF;
+     border-bottom:  1px solid #DFDFDF;
+    background-color:#EFEFEF;
+    background-image: url(../img/4G套餐.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    float: left;
+  }
+  .Gfly
+   {
+      width:300px;
+      height:188px;
+      background-color: white;
+      background-image: url(../img/4G飞享套餐.jpg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      float: left;
+      
+  }
+
+
+  .Ggaoqing
+   {
+      width:299px;
+     height:187px;
+     border-right:  1px solid #DFDFDF;
+     border-top:  1px solid #DFDFDF;
+      background-color: #EFEFEF;
+      background-image: url(../img/高清语音.jpg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      float: left;
+  }
+  .Gzixuan
+   {
+      width:300px;
+      height:188px;
+      background-color: white;
+      background-image: url(../img/4G自选套餐.jpg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      float: left;
+  }
+  .Gshouji
+   {
+      width:299px;
+     height:187px;
+     border-left:  1px solid #DFDFDF;
+     border-top:  1px solid #DFDFDF;
+      background-color: #EFEFEF;
+      background-image: url(../img/4G手机.jpg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      float: left;
+  }
+
+               /* 第五层：4G专区结束*/
+             /*  第六层：买手机部分开始*/
+.Buyarea
+   {width: 1200px;
+    height:430px;
+    border: 1px solid #DFDFDF;
+    margin: 12px auto;
+    position: relative;
+   }
+ .Buyarea_top
+   {width: 100%;
+    height:47px;
+    border-bottom: 1px solid #DFDFDF;
+    }
+ .Buyarea_title
+     {font-size: 14px;
+      color:#0085D0;
+      font-weight: bold;
+      margin-left: 25px;
+      line-height:46px;
+     }
+.Buyarea_more
+     {
+      font-size: 12px;
+      color:#666666;
+      margin-left: 1038px;
+      line-height:17px;
+     }
+
+
+.yidong
+  {width: 299px;
+   height:378px;
+   border-right: 1px solid #DFDFDF;
+   background-color: white;
+    background-image: url(../img/红辣椒.jpg),url(../img/热卖.png);
+   background-repeat: no-repeat,no-repeat;
+    background-position:87px 100px,208px -12px;
+    float: left;
+   margin-top: 1px;
+   margin-bottom: 17px;
+  }
+  .qiku
+  {width: 299px;
+   height:378px;
+   border-right: 1px solid #DFDFDF;
+   background-color: white;
+    background-image: url(../img/奇酷.jpg),url(../img/热销.jpg);
+    background-repeat: no-repeat,no-repeat;
+    background-position:87px 100px,208px -15px;
+    float: left;
+   margin-top: 1px;
+   margin-bottom: 17px;
+  }
+  .huaweione
+  {width: 299px;
+   height:378px;
+   border-right: 1px solid #DFDFDF;
+   background-color: white;
+    background-image: url(../img/三星.jpg);
+    background-repeat: no-repeat;
+    background-position:87px 100px;
+    float: left;
+   margin-top: 1px;
+   margin-bottom: 17px;
+  }
+  .huaweitwo
+  {width: 299px;
+   height:378px;
+   border-right: 1px solid #DFDFDF;
+   background-color: white;
+    background-image: url(../img/红辣椒.jpg),url(../img/低价.jpg);
+    background-repeat: no-repeat,no-repeat;
+    background-position:87px 100px,208px -12px;
+    float: left;
+   margin-top: 1px;
+   margin-bottom: 17px;
+  }
+
+ /* 文字样式*/
+  .shoujiming{font-size: 17px;
+               color:#000;
+               margin-left: 19px;
+               margin-top: 28px;
+              }
+
+  .shoujijieshao{font-size: 13px;
+                  color:#0085D0;
+                  margin-left: 19px;
+                  margin-top: 22px;
+                }
+  .price{ font-size: 18px;
+          color:#EF33B5;
+          font-weight: bold;
+          margin-left: 19px;
+          margin-top: 25px;
+                }
+  .yuanjia{
+          font-size: 16px;
+          color: #C8C8C8;
+          font-weight: bold;
+          margin-left: 93px;
+          margin-top:25px;
+          text-decoration: line-through;
+
+          }
+             /*  第六层：买手机部分结束*/
+             /*第七层:推荐部分开始*/
+.tuijianArea
+     {width: 1200px;
+    height:430px;
+    border: 1px solid #DFDFDF;
+    margin: 12px auto;
+   }
+.tuijian_head
+     {width: 100%;
+    height:47px;
+    border-bottom: 1px solid #DFDFDF;
+    }
+.tuijian_title
+     {font-size: 14px;
+      color:#0085D0;
+      font-weight: bold;
+      margin-left: 25px;
+      line-height:46px;
+     }
+.tuijian_more
+     {
+      font-size: 12px;
+      color:#666666;
+      margin-left: 1038px;
+      line-height:17px;
+     }
+
+.wlan{
+   width:300px;
+    height:377px;
+    border-right:1px solid #DFDFDF;
+    background-image: url(../img/业务推荐.jpg);
+    background-repeat: no-repeat;
+    float: left;
+   }
+.lcyj
+   {
+    width:300px;
+    height:187px;
+     border-bottom:  1px solid #DFDFDF;
+    background-image: url(../img/两城一家.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    float: left;
+   }
+   .llfxb
+   {
+    width:298px;
+    height:187px;
+     border-left:  1px solid #DFDFDF;
+     border-right:  1px solid #DFDFDF;
+     border-bottom:  1px solid #DFDFDF;
+    background-image: url(../img/流量放心包.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    float: left;
+  }
+ .jtw
+   {
+      width:299px;
+      height:187px;
+      border-bottom:  1px solid #DFDFDF;
+      background-image: url(../img/201508031516432745a5.jpg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      float: left;
+      
+  }
+ .sjb
+   {
+      width:300px;
+      height:194px;
+      border-right:  1px solid #DFDFDF;
+      background-image: url(../img/手机报.jpg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      float: left;
+  }
+  .jnllb
+   {
+      width:298px;
+      height:194px;
+      border-right:  1px solid #DFDFDF;
+      background-image: url(../img/季年流量包.jpg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      float: left;
+  }
+  .byllb
+   {
+      width:298px;
+     height:194px;
+     background-image: url(../img/包月流量包.jpg);
+      background-repeat: no-repeat;
+      background-position: bottom right;
+      float: left;
+  }
+/* 文字样式：*/
+ .llming
+   {font-size:16px;
+    color:black;
+    margin-left:24px;
+    font-weight:bold;
+    }
+
+  .lljieshao
+   {font-size:12px;
+    color:black;
+    margin-left:24px;
+    margin-top: 12px;
+    }
+ a:hover{color:#25c0fb;}                
+                /*第七层:推荐部分结束*/
+                /*第八层：页脚部分开始*/
+/*公告*/
+.gonggao
+ { width: 1202px;
+   height: 39px;
+   margin: 0 auto;
+   border: 1px solid #C1C1C1;
+   line-height: 39px;
+   font-size: 15px;
+
+   }
+ .gonggao_img
+   {
+    width: 47px;
+    height: 37px;
+    background-image:url(../img/2016-05-22_005737.jpg);
+    float: left;
+   }
+   .gonggao_imgtwo
+   {
+    width: 47px;
+    height: 37px;
+    background-image:url(../img/2016-05-22_012930.jpg);
+    float: left;
+    background-color:red; 
+    margin-left:130px;
+    margin-top:2px;
+    }
+  .gonggao_two
+   {
+    width:47px;
+    height: 37px;
+    font-weight: bold;
+    float: left;
+   }
+.gonggao_three
+ { width: 327px;
+   height: 37px;
+   float:left;
+   font-weight: bold;
+   color:#00A2E2;
+    }
+  .gonggao_four
+  {
+    width: 103px;
+   height: 37px;
+   float:left;
+   font-weight: bold;
+   color:#CCCCCC;
+  }
+
+
+/*end部分*/
+.end
+ {
+   width:1134px;
+   height: 204px;
+   margin: 0 auto;
+   border: 1px solid #C1C1C1;
+   margin-top: 12px;
+   padding: 10px 34px;
+ }
+ .end a
+  {
+  	font-size: 14px;
+    display: block;
+  }
+
+  .end ul
+  {
+    margin-right:127px; 
+    float:left;
+  } 
+  /*字体*/
+  .end ul li
+   {
+    display: block;
+    margin-top:12px;
+    color: #666666;
+   }
+   .end ul .end_one
+    {
+      font-size:15px;
+      font-weight: bold;
+    }
+  /*  页脚*/
+  .YJout
+  {
+    width: 700px;
+    height: 205px;
+    /*background: red;*/
+    margin: 0 auto;
+    margin-top: 29px;
+ }
+  .YJ_new
+    {
+      width: 690px;
+      height:16px;
+      margin:0 auto;
+      padding-left: 10px;
+    }
+  .YJout a
+   {
+     width: 59px;
+     height: 16px;
+     margin-top: 2px;
+     color:#666666;
+     font-size:12px;
+     text-align: center;
+     float: left;
+   }
+ .YJout .YJ_new_zgyd 
+  {
+     width:95px;
+     height: 16px;
+     margin-top: 2px;
+     font-size:12px;
+     text-align: center;
+     float: left;
+  } 
+
+/*  第二行*/ 
+ .YJ_two
+   { width: 600px;
+     height:14px;
+  /*   background-color:green; */
+     margin: 0 auto;
+     margin-top: 19px;
+     font-size: 12px;
+  }
+  .YJ_two span
+   {
+    float: left;
+   }
+  .YJ_two a
+   {width: 85px;
+    height: 14px;
+   /* background: yellow;*/
+    margin-top: -1px;
+    line-height: 14px;
+   }
+   .YJ_two .YJ_three 
+    {
+      width: 48px;
+      height: 14px;
+      /*background: blue;*/
+      margin-top:-1px;
+      line-height: 14px;
+    }
+    .YJ_two .YJ_four
+    {
+      width: 88px;
+      height: 14px;
+      /*background: red;*/
+      margin-top:-1px;
+      line-height: 14px;
+    }
+/*第三行版权*/
+   .YJ_banquan 
+   { width: 246px;
+     height:14px;
+    /* background-color:green; */
+     margin: 0 auto;
+     margin-top: 19px;
+     font-size: 12px;
+  }
+/*第四行 许可编号*/
+ .YJ_xuke 
+   { width: 438px;
+     height:14px;
+     /*background-color:green; */
+     margin: 0 auto;
+     margin-top: 19px;
+     font-size: 12px;
+  }
+  /*最下面*/
+  .finally
+   {width: 320px;
+    height: 52px;
+    /*background: green;*/
+    margin:0 auto;
+    margin-top: 20px;}
+
+  .finally a
+    {width:136px;
+     height:53px; 
+    /* background-color: yellow;*/
+     float: left;
+     line-height: 53px;
+    }
+    .finally img
+     {
+     float: left;
+     }
+
+     .YJout a:hover{color:blue;}                
+            /*第八层：页脚部分结束*/
+
+/*右侧固定定位图*/

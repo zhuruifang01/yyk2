@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="js/function.js"></script>
+	<style>
+      .box{
+      	width:390px;
+      	height:370px;
+      	position:relative;
+      }
+      .smallbox{
+      	width:390px;
+      	height:370px;
+        border:1px solid black;
+        position:relative;
+        cursor:none;
+      }
+      .movebox{
+        width:100px;
+        height:100px;
+        background:rgba(0,0,0,0.3);
+        position:absolute;
+        left:0;top:0;
+        display:none;
+      }
+
+      .zhezhao{ /*遮罩*/
+        width:100%;
+        height:100%;
+        background:rgba(47,47,47,0.2);
+        position:absolute;
+        left:0;top:0;
+        z-index:99;
+      }
+      .bigbox{
+      	width:390px;
+      	height:370px;
+      	border:1px solid black;
+      	position:absolute;
+      	left:400px;
+      	top:0;
+      	overflow:hidden;
+      	display:none;
+      }
+      .bigbox img{
+      	position:absolute;
+      	left:0;
+      	top:0;
+      }
+	</style>
+ <script>
+   $(function(){
+     var smallbox=$(".smallbox")[0];
+     var bigbox=$(".bigbox")[0];
+     var movebox=$(".movebox")[0];
+     var zhezhao=$(".zhezhao")[0];
+     var bigimg=$("img",bigbox)[0];
+     var smallimg=$("img",smallbox)[0];
+
+    hover(smallbox,function(){ //鼠标移入
+    movebox.style.display="block";
+    bigbox.style.display="block";
+    },function(){ //鼠标移出
+      movebox.style.display="none";
+      bigbox.style.display="none"; 
+    });
+
+   zhezhao.onmousemove=function(e){
+      e=e||window.event;
+      var ox=e.offsetX-movebox.offsetWidth/2; //鼠标一直在movebox的中间
+      var oy=e.offsetY-movebox.offsetHeight/2;
+       
+      if(ox>=smallbox.offsetWidth-movebox.offsetWidth){ox=smallbox.offsetWidth-movebox.offsetWidth;} //不超过边界
+      if(ox<=0){ox=0;}
+      if(oy>=smallbox.offsetHeight-movebox.offsetHeight){oy=smallbox.offsetHeight-movebox.offsetHeight;}
+      if(oy<=0){oy=0;}
+
+      movebox.style.left=ox+"px";
+      movebox.style.top=oy+"px";
+
+      // 比例：【(大图片宽-大盒子宽)/(小盒子宽-movebox的宽)】
+      var x=(bigimg.offsetWidth-bigbox.offsetWidth)/(smallbox.offsetWidth-movebox.offsetWidth);
+      var y=(bigimg.offsetHeight-bigbox.offsetHeight)/(smallbox.offsetHeight-movebox.offsetHeight);
+      bigimg.style.left=-ox*x+"px";
+      bigimg.style.top=-oy*y+"px";
+      
+   }
+
+
+
+   });
+</script>
+</head>
+<bdoy>
+	<div class="box">
+		<div class="smallbox">
+		  <img src="img/smallimg.jpg" alt=""></img>	
+      <div class="movebox"></div>
+      <div class="zhezhao"></div>
+		</div>
+		<div class="bigbox">
+		  <img src="img/bigimg.jpg" alt=""></img>	
+		</div>
+	</div>
+</body>
+</html>

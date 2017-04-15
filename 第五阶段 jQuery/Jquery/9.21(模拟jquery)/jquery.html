@@ -1,0 +1,26 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>实现jquery里的方法</title>
+<script src="myjquery.js"></script>
+</head>
+<body>
+  <div></div>
+  <div></div>
+  <div></div>
+</body>
+<script>
+	//var box=new jquery("div");
+	// alert(box[0]);
+	// alert(box.length);
+    $("div")
+    .html("内容")
+    .css({
+      width:"200px",
+      height:"200px",
+      border:"1px solid black"
+    })
+    .click(function(){alert(1)})
+</script>
+</html>

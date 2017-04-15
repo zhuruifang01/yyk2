@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>表格的增、删、改</title>
+<style>
+input{
+	border: 0;
+}
+table{
+   width:1000px;
+   margin:0 auto;
+   border:1px solid black;
+}
+th,td{
+	width:100px;
+	height:50px;
+	border:1px solid black;}
+th{height:80px;}
+tr{
+	text-align:center;}
+caption{
+	font-size: 30px;
+	font-weight:bold;
+}
+
+</style>
+<script src="js/function.js"></script>
+<script src="js/花名册.js"></script>
+</head>
+<body>
+	<table id="tables" cellspacing="0" cellpaddind="0" >
+		<caption>XXX班花名册</caption> <!-- 标题 -->
+		
+		<tbody id="tbody"><!-- 主体 -->
+			<tr><!-- 行 -->
+				<th>姓名</th> <!-- 头部 列 -->
+				<th>性别</th>
+				<th>年龄</th>
+				<th>联系方式</th>
+				<th id="add"><h3>+</h3></th>
+		   </tr>
+			<tr>
+				<td>小明</td>  <!-- 列 -->
+				<td>小明</td>
+				<td>小明</td>
+				<td>小明</td>
+				<td class="del">X</td>
+			</tr>
+			<tr>
+				<td>小明</td>
+				<td>小明</td>
+				<td>小明</td>
+				<td>小明</td>
+				<td class="del">X</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+		<html lang="en">
+		<head>
+			<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+			<title>Document</title>
+     <script>
+     // 1)浏览器位置
+     // alert(window.screenX);
+     // alert(window.screenY);
+
+     // alert(window.screenLeft);
+     // alert(window.screenTop);
+
+     // 2)窗口大小
+    // alert(document.documentElement.clientWidth);
+    // alert(document.documentElement.clientHeight);
+
+    // 3)分辨率
+    // alert(window.screen.width);
+    // alert(window.screen.height);
+
+    // 4）
+     // window.status="这里是状态栏内容";
+//=============================================
+ // 方法：
+ // 1)
+  // window.moveBy(200,200); 
+  // window.moveTo(200,200); 
+ 
+  // window.resizeBy(100,100); 
+  // window.resizeTo(200,200);
+
+ // 2.时间函数：：
+  // setInterval(function(){
+  // 	alert(1);
+  // },1000);
+
+// 2(1).模拟倒计时：
+   // var i=10;
+   // var t=setInterval(function(){
+   //  	console.log(i);
+   //  	if(i<=0){
+   //  	 clearInterval(t);	
+   //  	}
+   //   	i--;},1000);
+ // 2(2). 
+    // var num=10;
+    // function daojishi(){
+    // 	if(num==-1){
+    // 	 clearTimeout(t2);
+    // 	}
+    // 	else{
+    // 	 console.log(num);
+    // 	 t2=setTimeout(daojishi,1000); //递归
+    // 	 num--;
+    // 	}
+    // } 
+    // var t2=setTimeout(daojishi,1000);或者
+   // 或：
+   //  var num=10;
+   //  t=setTimeout(function daojishi(){
+   //  console.log(num);
+   //  if(num>0)
+   //  {t=setTimeout(daojishi,1000);} //递归
+   // else{clearTimeout(t);}
+   //  num--;
+   //  },1000);
+//=================================================
+   // 3.打开关闭窗口：
+   var cc=confirm("是否打开计时器？");
+   // alert(typeof(cc)); //boolean
+   if(cc==true){
+    open("计时器.html","计时器","width=400,height=400");}
+   else{
+    close();
+   }
+//============================================================   
+
+
+     </script>
+
+
+
+
+		</head>
+		<body>
+			
+		</body>
+		</html>		

@@ -1,0 +1,49 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>图片的懒加载</title>
+	<script src="js/jquery-3.1.0.js"></script>
+	<script src="js/jquery.lazyload.js"></script>
+	<style>
+ul{
+	width: 900px;
+	height: 300px;
+	margin:20px auto;
+
+}
+li{
+	float: left;
+}
+	</style>
+</head>
+<body>
+	<ul>
+		<li><img src="" alt="" class="lazy" data-original="img/1.jpg" width="300" height="300"></li>
+		<li><img src="" alt="" class="lazy" data-original="img/2.jpg" width="300" height="300"></li>
+		<li><img src="" alt="" class="lazy" data-original="img/3.jpg" width="300" height="300"></li>
+	</ul>
+	<ul>
+		<li><img src="" alt="" class="lazy" data-original="img/1.jpg" width="300" height="300"></li>
+		<li><img src="" alt="" class="lazy" data-original="img/2.jpg" width="300" height="300"></li>
+		<li><img src="" alt="" class="lazy" data-original="img/3.jpg" width="300" height="300"></li>
+	</ul>
+	<ul>
+		<li><img src="" alt="" class="lazy" data-original="img/1.jpg" width="300" height="300"></li>
+		<li><img src="" alt="" class="lazy" data-original="img/2.jpg" width="300" height="300"></li>
+		<li><img src="" alt="" class="lazy" data-original="img/3.jpg" width="300" height="300"></li>
+	</ul>
+	<ul>
+		<li><img src="" alt="" class="lazy" data-original="img/1.jpg" width="300" height="300"></li>
+		<li><img src="" alt="" class="lazy" data-original="img/2.jpg" width="300" height="300"></li>
+		<li><img src="" alt="" class="lazy" data-original="img/3.jpg" width="300" height="300"></li>
+	</ul>
+</body>
+<script>
+	$("img.lazy").lazyload({
+		event:"mouseover",  //可视窗口之外的不显示。鼠标指向时才显示。
+		                      //【不写：则默认滚动到可视窗口就显示】
+		effect:"fadeIn"
+	})
+</script>
+</html>

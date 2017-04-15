@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>数字动画</title>
+<script src="js/jquery-3.1.0.js"></script>
+<style>
+   .box{
+   	 width:100px;
+   	 height:100px;
+   	 background-color:pink;
+   	 border:1px solid red;
+   	 margin:0 auto;
+   	 font-size:50px;
+   	 line-height:100px;
+   	 text-align:center;
+   	 color:white;
+   }
+</style>
+</head>
+<body>
+  <div class="box">1000</div>
+</body>
+<script>
+  var numObj={num:0};
+  $(numObj).animate(
+     {num:$(".box").html()},
+     {speed:3000,
+      step:function(){
+     	var aa=Math.ceil(numObj.num);
+     	$(".box").html(aa);
+     }
+    }
+   );
+
+</script>
+</html>

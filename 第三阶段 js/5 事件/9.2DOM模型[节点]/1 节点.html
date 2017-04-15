@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+<script src="function.js"></script>
+<style>
+  .father{
+  	width:600px;
+  	height:600px;
+  	border:1px solid black;
+  }
+  .son{
+  	width:150px;
+  	height:150px;
+  	border:1px solid black;
+  }
+</style>
+</head>
+<body>
+	<div class="father">
+	 文字也留下
+	  <div class="son">1</div>
+	  <div class="son">2</div>
+	  <!-- 注释 -->
+	  <!-- 注释 -->
+	  <div class="son">3</div>
+	</div>
+	<div class="father">
+	  <div class="son">1</div>
+	  <div class="son">2</div>
+	  <div class="son">3</div>
+	</div>				
+</body>
+<script>
+// 获取父元素：【法一】
+   // var father=$(".father")[0];
+// 或【法二】：
+	var son=$(".son")[1];
+	var father=son.parentNode;
+	father.style.background="red";
+
+	// var childs=father.childNodes;
+	// alert(childs.length);//7(空格也算)
+//获取所有的子节点 留下只有元素节点
+	var childs=getChild(father);
+	alert(childs.length);//3
+	for (var i = 0; i < childs.length; i++) {
+		childs[i].style.background="blue";
+	}
+ // 留下元素节点和文本节点
+	alert(getChild(father,"b").length);//4
+
+//---------------------------------------------------	
+//获取第一个子节点
+  var father2=$(".father")[1];
+  var first=getFirst(father2);
+  first.style.background="yellow";
+//获取最后一个子节点
+  var last=getLast(father2);
+  last.style.background="red";
+//获取指定下标的子节点
+  var num=getNum(father2,1);
+  num.style.background="blue";
+ //----------------------------------------
+ //获取下一个兄弟节点
+   var next=getNext(son);
+   alert(next);
+   next.style.background="pink";
+
+
+
+
+</script>
+</html>				

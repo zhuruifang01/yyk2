@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="function.js"></script>
+  <script src="animate.js"></script>
+	<style>
+     .box{
+     	width:200px;
+     	height:200px;
+     	background-color:pink;
+     }
+	</style>
+  <script>
+    $(function(){
+      var box=$(".box")[0];
+      animate(box,{width:400,height:400,opacity:0.3},1000,Tween.Back.easeIn,function(){box.style.background="green"});
+
+    })
+
+  </script>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+<script>
+ 
+</script>
+</html>

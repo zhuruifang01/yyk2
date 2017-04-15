@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+<script>
+
+ // 一、函数 
+  // function tanchu(n)        
+  //    {
+  //    console.log(n);
+  //    document.write(n);
+  //    alert(n);
+  //     }
+// 调用 
+  // var a="aaa";     
+  // tanchu(a);  
+
+ // 2、练习。
+  // function shuchu(n)
+  //  {
+  //  	for(var i=1;i<=n;i++)
+  //  	 {console.log(1);}
+  //  }
+ 
+  //  var num=prompt("你想在控制台输出几个1？","");
+  //  shuchu(num);
+
+  // 3.求阶乘
+ //   function jiecheng(n)
+ //    {
+ //    	var s=1;
+ //    	for(i=1;i<=n;i++)
+ //    	 {
+ //    	 	s*=i;
+ //    	 }
+ //      console.log(num+"的阶乘是"+s); 
+ //    }
+
+ // var num=prompt("你想求几的阶乘？");
+ // jiecheng(num);
+
+ // 4.用字面量求和1到n
+  //  var aa=function(n)
+ //    {
+ //      var S=1;	
+ //      for(var i=1;i<=n;i++)
+ //      {S+=i;}
+ //     console.log("1到"+n+"的和是："+S);
+ //   }
+
+ // var b=prompt("求1到几的和？","");
+ // aa(b);
+
+// 5.n行m列的表格
+ // function biaoge(n,m,color1,color2)
+ //  {
+ //  	document.write("<table width='400' height='400' border='1'>");
+ //  	 // 不传值时默认5行5列，红色，绿色
+ //     n=undefined||5;
+ //  	 m=undefined||5;
+ //  	 color1=undefined||'red';
+ //  	 color2=undefined||'green';
+ 
+ //  for(var i=1;i<=n;i++)
+ //  	  { if(i%2==0)
+ //  	  	{document.write("<tr bgcolor="+color1+">")}
+ //  	  	else{document.write("<tr bgcolor="+color2+">")}
+ //        for(var j=1;j<=m;j++)
+ //  	  	 {
+ //  	  	  document.write("<td></td>")
+ //  	  	 }
+ //        document.write("</tr>")
+ //  	 }
+ //  	document.write("</table>")
+ // }
+
+ // var a=prompt("输入表格行数","");
+ // var b=prompt("输入表格列数","");
+ // var color1=prompt("输入color1","");
+ // var color2=prompt("输入color2","");
+ // biaoge(a,b,color1,color2);
+
+
+// 6.数据类型
+//  function type(n)
+//   {
+//   	var a=(typeof n);
+//   	if(a=="number"){document.write(n+"是"+"数值类型");}
+//   	else if(a=="string"){document.write(n+"是"+"字符类型");}
+//   	else if(a=="boolean"){document.write(n+"是"+"布尔类型");}
+//   	else if(a=="object"){document.write(n+"是"+"对象类型");}
+//  }
+// var aa=null;
+// type(aa);
+
+// 7.自调用
+  // (function(){console.log(1)})()
+
+// 8.arguments
+ // function aa(n,m)
+ //  {
+ //    console.log(n);
+ //    console.log(m);
+ //    console.log(arguments[0]);
+ //    console.log(arguments[1]);
+ //    console.log(arguments[4]);   //具体参数的数值
+ //    console.log(arguments.length);  //函数参数的长度
+ //    console.log(arguments.callee);  //显示出函数本身
+ //  }
+ //  aa(1,2,3,4,1);
+
+ // 9.函数重载 格式
+
+    // function cz(n,m)
+    //  {
+    //   if(arguments.length==1)
+    //     { if(typeof arguments[0]=='number')
+    //        {
+    //         document.write("是一个参数，数值类型")
+    //        }
+    //       else if(typeof arguments[0]=='string')
+    //        {
+    //         document.write("是一个参数，字符串类型")
+    //        }
+    //     }
+      
+    //    else if(arguments.length==2)
+    //     { if(typeof arguments[0]=='number')
+    //       {document.write("是两个参数，数值类型")}
+    //       else if(typeof arguments[0]=='string')
+    //       {document.write("是两个参数，字符串类型")}
+    //     }
+    //  }
+    
+    // cz(1);
+    // cz(1,2);
+    // cz("1");
+    // cz("1","2");
+
+ // 10、返回值：
+  //  function aa()
+  //   {console.log(1);                 // 1
+  //     return "aaa";           //将aaa返回给变量A,且终止执行
+  //    console.log(1);
+  //   }
+  // var A=aa();                       // aaa
+  // console.log(A);
+
+  // (3)
+    //  function aa() {
+    //   return 2,3,4;5;           4为返回值。且4;分号之后终止。
+    //   }
+    // console.log(aa());
+  
+// 11.作用域：
+// var a=4;
+// function aa(){
+//   return function bb(){
+//     var a=5;
+//     console.log(a);
+//   }
+
+// }
+//  aa()();
+
+//理解（2）
+// var fun=function(name){
+//     return function(){
+//         if(typeof name=="undefined"){
+//           var name="lisi";
+//           console.log(name);
+//         }
+//         else{
+//             console.log(name);}
+//     }
+// }
+// fun("zhangsan")();
+
+
+// 12回调函数
+
+//  function jisuan(n,m,fun)
+//   {
+//     var result=fun(n,m)
+//     console.log(result);
+//   }
+//   function add(x,y)
+//   {
+//     return x+y;
+//   } 
+//   function jian(x,y)
+//   { return x-y;}
+//   function cheng(x,y)
+//   { return x*y;}
+//   function chu(x,y)
+//   { return x/y;}
+// var num1=3;
+// var num2=4;
+// jisuan(num1,num2,add);
+// jisuan(num1,num2,jian);
+// jisuan(num1,num2,cheng);
+// jisuan(num1,num2,chu);
+
+// 13.递归函数：(5的阶乘)
+// function jiecheng(n){
+//      if(n==1){
+//      return 1;
+//      }
+//      else {
+//      return n*jiecheng(n-1);
+//      }
+//    }
+
+//    var result=jiecheng(5);
+//    console.log(result);
+
+// 14.闭包函数：
+//   function aa(){
+//     var num=30;
+//     return function(){
+//       return num++;
+//     }
+//   }
+// var cc=aa();
+//  alert(cc);//内部函数
+// alert(cc());  //30
+// alert(cc());  //31
+// alert(cc());  //32
+
+
+
+
+
+</script>
+
+
+
+</head>
+
+
+<body>
+	
+</body>
+</html>

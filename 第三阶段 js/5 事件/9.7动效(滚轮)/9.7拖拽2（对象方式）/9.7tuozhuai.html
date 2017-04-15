@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>鼠标拖拽2(用对象的方式)</title>
+	<script src="js/function.js"></script>
+	<script src="js/drag.js"></script>
+	<script>
+       $(function(){
+       	 var box=$(".box")[0];
+         var obj=new drag(box); //实例化对象
+             obj.drags(); //调用构造函数的drags方法
+       });
+	</script>
+    <style>
+       body{margin:0;}
+       .box{
+       	 width:200px;
+       	 height:200px;
+       	 background-color:plum;
+       	 position:fixed;
+       	 left:0;
+       	 top:0;
+       }
+    </style>
+</head>
+<body>
+	<div class="box">用对象的方式完成拖拽特效 用对象的方式完成拖拽 用对象的方式完成拖拽 用对象的方式完成拖拽 用对象的方式完成拖拽 用对象的方式完成拖拽 </div>
+</body>
+</html>

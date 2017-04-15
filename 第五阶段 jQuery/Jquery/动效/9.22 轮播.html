@@ -1,0 +1,155 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>轮播(透明度)</title>
+<script src="js/jquery-3.1.0.js"></script>
+<style>
+  .banner{
+  	width:1190px;
+  	height:470px;
+  	margin:0 auto;
+  	position:relative;
+  }
+  .imgbox{
+  	width:100%;
+  	height:100%;
+  	position:relative;
+  }
+  .imgbox a{
+  	position:absolute;
+  	left:0;
+  	top:0;
+  }
+  .btn{
+  	width:135px;
+  	height:20px;
+  	position:absolute;
+  	left:0;right:0;
+  	margin:0 auto;
+  	bottom:10px;
+  }
+  .btn div{
+  	width:20px;
+  	height:20px;
+    margin-right:10px;
+    border-radius:50%;
+    float:left;
+    background-color:#666;
+  }
+  .btn .active{
+  	border-radius:10px;
+  	width:35px;
+  	background-color:rgba(255,0,0,0.8);
+  }
+  .jiantou{
+  	width:50px;
+  	height:100px;
+  	background-color:black;
+  	opacity:0.8;
+  	color:white;
+  	font-size:30px;
+  	position:absolute;
+  	top:0;bottom:0;
+  	margin:auto 0;
+  	text-align:center;
+  	line-height:100px;
+  	display:none;
+  	cursor:pointer;
+  }
+ .left{
+  	left:0;
+  }
+ .right{
+  	right:0;
+  }
+</style>
+</head>
+<body>
+  <div class="banner" id="banner1">
+  	<div class="imgbox">
+  		<a href=""><img src="img/ban01.jpg" alt=""></a>
+  		<a href=""><img src="img/ban02.jpg" alt=""></a>
+  		<a href=""><img src="img/ban03.jpg" alt=""></a>
+  		<a href=""><img src="img/ban04.jpg" alt=""></a>
+  	</div>
+    <div class="jiantou left">&lt</div>
+  	<div class="jiantou right">&gt</div>
+  	<div class="btn">
+  		<div class="active"></div>
+  		<div></div>
+  		<div></div>
+  		<div></div>
+  	</div>
+  </div>
+  <br>
+  <div class="banner" id="banner2">
+    <div class="imgbox">
+      <a href=""><img src="img/ban01.jpg" alt=""></a>
+      <a href=""><img src="img/ban02.jpg" alt=""></a>
+      <a href=""><img src="img/ban03.jpg" alt=""></a>
+      <a href=""><img src="img/ban04.jpg" alt=""></a>
+    </div>
+    <div class="jiantou left">&lt</div>
+    <div class="jiantou right">&gt</div>
+    <div class="btn">
+      <div class="active"></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+</body>
+<script>
+function lunbo(father,time){
+    $(father+">.imgbox>a").hide().eq(0).show(); //初始：其余隐藏第一张显示
+    var t=setInterval(move,time);
+    var num=0;
+    function move(type){
+      type=type||"right";
+      if(type=="right"){
+        num++;
+         if(num>=$(father+">.imgbox>a").length){
+         num=0;
+         }
+      }else if(type=="left"){
+        num--;
+        if(num<=-1){
+          num=$(father+">.imgbox>a").length-1;
+        }
+      }
+   $(father+">.imgbox>a").fadeOut(100).eq(num).fadeIn(300);//其余淡出,对应num的淡入
+   $(father+">.btn>div").removeClass().eq(num).addClass("active");
+    }
+   //移入 停止 箭头显示
+    $(father+".banner").mouseover(function(){
+        clearInterval(t);
+        $(father+">.jiantou").show();
+        }
+      ).mouseout(function(){
+        t=setInterval(move,time);
+        $(father+">.jiantou").hide();
+        }
+      );
+   //左右箭头
+    $(father+".banner>.left").click(function(){
+          move("left");
+       }
+      );
+    $(father+".banner>.right").click(function(){
+         move("right");
+       }
+      );
+   // 直接操作轮播小块 
+     $(".btn>div").mouseover(function(){
+      $(".btn>div").stop(true,true);
+      var index=$(this).index();
+      $(father+">.imgbox>a").fadeOut(100).eq(index).fadeIn(300);
+      $(father+">.btn>div").removeClass().eq(index).addClass("active");
+     });
+}
+ 
+ lunbo("#banner1",2000);
+ lunbo("#banner2",3000);
+</script>
+</html>

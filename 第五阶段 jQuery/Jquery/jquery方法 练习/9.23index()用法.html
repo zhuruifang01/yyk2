@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>index()的用法 下标</title>
+<script src="js/jquery-3.1.0.js"></script>
+</head>
+<body>
+	<ul>
+		<li>0</li>
+		<li>1</li>
+		<li>2</li>
+	</ul>
+
+	<ul>
+		<li>0</li>
+		<li>1</li>
+		<li>2</li>
+	</ul>
+</body>
+ <script>
+   $("ul li").click(function(){
+    //var index=$(this).index(); //下标
+  // 理解：index() 不传参数时，下标是指各自在其容器里的排序
+     var index=$(this).index("ul li");
+  // 理解：index() 传参数时，下标是指在所有li里的排序  
+
+
+    alert(index);
+    $("ul li").eq(index).css("background","red");
+   });
+ </script>
+</html>

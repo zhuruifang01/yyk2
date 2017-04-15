@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>选项卡</title>
+<script src="js/jquery-3.1.0.js"></script>
+<style>
+.bigbox{
+  	width:500px;
+    height:500px;
+    border:1px solid black;
+    margin:0 auto;
+         }
+   .title{
+     width:100%;
+     height:50px;
+   }
+   .title div{
+   	 width:33.3%;
+   	 height:100%;
+   	 background-color:#666;
+   	 float:left;
+   	 color:white;
+     line-height:50px;
+     text-align:center;
+   }
+   .con{
+   	width:100%;
+   	height:450px;
+   }
+   .con div{
+   	width:100%;
+   	height:450px;
+   	background-color:pink;
+   	display:none;
+    line-height:450px;
+    text-align:center;
+    color:white;
+    font-size:50px;
+   }
+   .con .active{
+   	display:block;
+   }
+
+.box{
+  width:100px;
+  height:100px;
+  border:1px solid black;
+}
+</style>
+</head>
+<body>
+<div class="bigbox">	
+  <div class="title">
+  	<div>00001</div>
+  	<div>00002</div>
+  	<div>00003</div>
+  </div>
+  <div class="con">
+  	<div class="active">1</div>
+  	<div style="background:red">2</div>
+  	<div style="background:green">3</div>
+  </div>
+</div>
+<br>
+
+<div class="bigbox">  
+  <div class="title">
+    <div>00001</div>
+    <div>00002</div>
+    <div>00003</div>
+  </div>
+  <div class="con">
+    <div class="active">1</div>
+    <div style="background:red">2</div>
+    <div style="background:green">3</div>
+  </div>
+</div>
+<br>
+
+<div class="bigbox">  
+  <div class="title">
+    <div>00001</div>
+    <div>00002</div>
+    <div>00003</div>
+  </div>
+  <div class="con">
+    <div class="active">1</div>
+    <div style="background:red">2</div>
+    <div style="background:green">3</div>
+  </div>
+</div>
+<br>
+</body>
+<script>
+//选项卡
+ $(".title>div").mouseover(function(){
+     var index=$(this).index(".title>div");  //下标
+     $(".con>div").eq(index).show().siblings().hide();
+     //移入的显示，其所在父元素区域内的兄弟元素隐藏
+     //$(".con>div").hide(300).eq(index).show(300);
+    }
+  	);
+ 
+</script>
+</html>

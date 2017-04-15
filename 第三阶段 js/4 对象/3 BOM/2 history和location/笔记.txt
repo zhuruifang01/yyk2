@@ -1,0 +1,37 @@
+8.29笔记
+
+一：history(历史对象)
+用户访问过得URL信息
+
+1.属性：
+  history.length;// 用户访问过的URL信息的个数;
+2.方法：
+  1)前进：
+   history.forward();   //无参数
+  2)后退：
+   history.back();
+  3)
+   history.go(-1);
+            //-1:后退    1：前进     0：刷新
+
+==============================================================================================
+二：location(地址对象)
+记录地址信息
+1.属性：
+http://     www.baidu.com: 8080/   aa/bb/index.html #one     ？name=zhangsan&password=123456 【location.href】
+协议         域名           端口    路径             锚链接    查询字符串
+(protocol)   (hostname)    (port)   (pathname)        (hash)    (search)
+                     [host]
+
+2.方法：
+  1）location.assign("url");  //重新加载一个窗口//会形成历史记录
+  2）location.replace("url"); //替换当前窗口  //不会形成历史记录
+  3）location.reload();    //刷新
+--------------------------------------
+- 总结：打开新窗口 4种方法：         -
+-    (1)window.open("url");                 -
+-    (2)location.href="url";         -
+-    (3)location.assign("url");      -
+-    (4)location.replace("url");     -
+--------------------------------------
+

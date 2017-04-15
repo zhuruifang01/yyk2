@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>动态添加div标签</title>
+	<script src = "js/function.js"></script>
+	<script src = "js/animate.js"></script>
+</head>
+<body>
+</body>
+   <script>
+//用js添加num个div标签，大小，位置，颜色各不同   
+     function createDiv(num){
+     	for(var i=0;i<num;i++){
+     		var cw=document.documentElement.clientWidth;//获取浏览器宽度
+     		var ch=document.documentElement.clientHeight;
+
+     		var w=Math.ceil((Math.random()*30)*10);//宽高取随机数
+            var div=document.createElement("div");  //动态添加div标签
+     		div.w=w;
+            var l=Math.abs(Math.ceil(Math.random()*cw)-w); //定位：距离左 随机数
+            var t=Math.abs(Math.ceil(Math.random()*ch)-w); //定位：距离上
+            var r=Math.ceil(Math.random()*255);  //rgb( , , );
+            var g=Math.ceil(Math.random()*255);
+            var b=Math.ceil(Math.random()*255);
+           
+           
+     	   document.body.appendChild(div);
+     	   div.style.cssText="width:"+w+"px;height:"+w+"px;background:rgb("+r+","+g+","+b+");position:absolute;left:"+l+"px;top:"+t+"px;border-radius:50%;";
+
+     	   div.onmouseover=function(){
+     	   	animate(this,{width:this.w+30,height:this.w+30});
+     	   }
+           div.onmouseout=function(){
+            animate(this,{width:this.w,height:this.w});
+           }
+
+         }
+        }
+    createDiv(5);
+
+   </script>
+
+</html>

@@ -1,0 +1,16 @@
+Jquery : javascript query
+
+特点：
+ 1.隐式循环:(不用写循环了)
+ 2.链式调用:（后面可以一直跟点.）
+ 3.强大的查询功能;
+
+用法：
+1. 查询元素：
+2. 创建元素：
+  $("<div> hello！</div>").appendTo("body");
+3. 等待文档加载完成：
+  $(function(){
+  })
+
+  //相当于$(windiw).ready(),会在html结构加载完成后被触发，比onload提前加载

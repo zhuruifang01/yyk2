@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+<style>
+  .uek{
+  	width:100px;
+  	height:100px;
+  	border:1px solid black;
+  	float:left;
+  	margin-top:80px;
+  }
+  #box{width:100px;
+       height:100px;
+       border:1px solid black;}
+  .box{width:100px;
+       height:100px;
+       border-radius:50%;}
+  .bigbox{
+  	width:300px;
+  	height:300px;
+  	background-color:white;
+  }
+</style>
+<script src="js/jquery-3.1.0.js"></script>
+</head>
+<body>
+  <div id="box"></div>
+
+  <div class="uek"></div>
+  <div class="uek"></div>
+  <div class="uek"></div>
+  <div class="uek"></div>
+
+  <img src="img/1.jpg" alt="">
+  <img src="img/1.jpg" alt="">
+   
+  <input type="checkbox" checked>
+
+  <div class="bigbox"></div>
+</body>
+<script>
+// 一：核心函数：
+ // 1.查找元素
+  var box=document.getElementById("box");
+  $($(box)).css({
+  	width:"200px",
+  	height:"200px",
+  	border:"1px solid black",
+  	background:"pink"
+  });
+  $(document.body).css(
+  	"background","green");
+ //2.创建元素：
+  $("<h3>创建元素</h3>").appendTo("body");
+ //3.等待文档加载完成：
+  $(function(){
+
+  });
+//二：对象访问：
+  // 1.循环
+  var arr=["red","blue","yellow","pink"];
+  $(".uek").each(function(i,obj){
+    $(obj).addClass("uek"+(i+1)).css({
+    	background:arr[i]
+    })
+  });
+  //2.元素长度：
+    // alert($(".uek").length);  //4
+   //alert($(".uek").size());
+  //3
+   $($(".uek").get(0)).css("width","200px");
+//三：属性：
+  console.log($($("img").get(0)).attr("src")); //获取属性值
+  $($("img").get(0)).attr("aa","bb");  //创建属性并赋值
+  $($("img").get(1)).attr({aa:"bb",   //创建多个属性并赋值
+                           cc:"dd"});
+ // 2.删除属性
+  $($("img").get(1)).removeAttr("aa");
+ //3.
+   $("input").prop("checked",false); //设置
+   console.log($("input").prop("checked"));//获取属性值
+ </script>
+ <script>
+   $("#box").addClass("box1"); //添加类名
+   $("#box").removeClass("box1");//删除类名
+
+   $("#box").click(function(){
+   	 $(this).toggleClass("box"); //切换类名
+   })
+
+
+   $("#box").html("<h1>标题</h1>"); //设置内容
+   console.log($("#box").html()); //获取内容
+
+   console.log($("#box").text()); //获取文本内容（不包括标签）
+   $("#box").text("<h1>标题</h1>");  //设置内容（不解析标签样式）
+ </script>
+ <script>
+//位置
+    console.log($(".bigbox").offset().left);
+    console.log($(".bigbox").offset().top);
+
+    $(".bigbox").offset({left:0});
+
+ </script>
+   </html>)

@@ -1,0 +1,55 @@
+一、DOM模型
+二、节点：指文档树的标签、属性、文字、注释。
+     分类： 元素节点：标签
+            属性节点
+            文本节点：文字或空格
+            注释节点：
+            文档节点：#document
+三、节点的获取方法：
+   1.找其 父节点：     对象.parentNode   理解：【子节点.parentNode 】
+   2.上一个兄弟节点：  对象.previousSibling  【兼容问题】
+   3.下一个兄弟节点：  对象.nextSibling     【兼容问题】
+   4.子节点：        对象.childNodes   【兼容问题(空格)】 用函数getChild();解决
+   5.第一个子节点：  对象.firstChild         【兼容问题】
+   6.最后一个子节点：对象.lastChild         【兼容问题】
+四、节点对象的属性：
+   1.节点的类型： 对象.nodeType
+   2.节点的名字： 对象.nodeName
+   3.节点的值：   对象.nodeValue
+     ---------------------------------------------------
+                 nodeType(数值)  nodeName   nodeValue
+
+       元素节点:    1              标签名      null
+       属性节点:    2              属性值     属性值
+       文本节点:    3              #text       文本      
+       注释节点:    8             #comment    注释的文字
+       文档节点:    9             #document    null
+     ----------------------------------------------------
+五、节点的方法：
+  1.创建节点：
+      1)元素节点：
+        var aa=document.createElement("标签名");
+               document.body.appendChild(aa);   //追加(添加)元素
+      2）文本节点：
+        var text=document.createTextNode("文字");
+              aa.appendChild(text);
+
+  2.创建属性节点：
+      var href=document.createAttribute("href");
+      href.nodeValue="http:www.baidu.com";
+      aa.setAttributeNode(href);
+   -------------------------------------------------------------------------------
+    追加元素的方法：
+     (1) 父对象.appendChild(追加的对象)   【将】
+        或：
+     (2) 父对象.insertBefore(追加的对象,之前的对象)      【插入到某个对象之前】
+   -------------------------------------------------------------------------------
+  3.删除节点：
+      父对象.removeChild(删除的对象);
+      如果确定要删除节点，最好清空内存：删除的对象=null;
+  4.替换节点：
+       父对象.replaceChild(新节点,旧节点);   
+  5.克隆节点：
+       需要复制的节点.cloneNode(true);
+         true【复制其子节点】
+         false【不复制子节点】【默认】

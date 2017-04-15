@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+<script src="function.js"></script>
+<style>
+	.inner{
+		width:30px;
+		height:30px;
+		border:1px solid black;
+	}
+	.box .two{
+	   background-color:red;
+	}
+</style>
+</head>
+<body>
+	<div class="inner">1</div>
+	<div class="box">
+		<div class="inner">1</div>
+		<div class="inner two">2</div>
+		<div class="inner">3</div>
+		<div class="inner">4</div>
+	</div>
+	<script>
+ //   var box=document.getElementsByClassName("box")[0];
+ //   var inner=box.getElementsByClassName("inner");
+ //   for(var i=0;i<inner.length;i++){
+ //   	inner[i].style.background="plum";
+ //   }
+   
+     var box=getClass("box")[0];
+    
+     var inner=getClass("inner",box);
+     alert(inner.length);
+     for(var i=0;i<inner.length;i++){
+     	inner[i].style.background="plum";
+     }
+    </script>
+
+	
+</body>
+</html>

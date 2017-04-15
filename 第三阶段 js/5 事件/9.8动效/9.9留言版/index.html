@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>留言板</title>
+<script src="js/function.js"></script>
+<script src="js/animate.js"></script>
+<script>
+  $(function(){
+    var btn=$("#btn");
+    var con=$("#con");
+    var lyb=$(".top")[0];
+    var tishi=$(".tishi")[0];
+       
+     function show(){
+      var val=con.value; 
+        val=val.replace(/^\s*|\s*$/g,""); //去除空格
+        if (val==""){
+          alert("内容不能为空");
+        }else{
+         var p=document.createElement("p");
+         p.innerHTML=val;
+         lyb.appendChild(p);
+         con.value="";
+         con.focus();
+           }
+      }
+
+     btn.onclick=con.onkeydown=function(e){
+      var e=e||window.event;
+      if(e.type=="click"){
+        show();
+      }else if(e.type=="keydown"){
+         if(e.ctrlKey && e.keyCode==13){
+          show();
+         }
+      }
+    }
+
+    con.onkeyup=con.onkeypress=function(){
+       var val=con.value;
+       val=val.replace(/^\s*|\s*$/g,"");
+      var len=val.length;
+      var max=40;
+      if(len>=max){
+        con.value=val.substr(0,max);
+        tishi.innerHTML="您可以输入"+max+"个字符，已经输入"+len+"个字符，还剩下0个字符"
+      }else{
+        tishi.innerHTML="您可以输入"+max+"个字符，已经输入"+len+"个字符，还剩下"+(max-len)+"个字符"
+     }
+    }
+
+ });
+</script>
+<style>
+  body,ul,li,textarea,p{margin:0;padding:0;}
+  .box{
+  	width:300px;
+  	height:450px;
+  	margin:0 auto;
+  }
+  .top p{
+  	width:100%;
+  	height:50px;
+  	background-color:#eee;
+  	line-height:50px;
+  	text-align:center;
+    margin-bottom:3px;
+  }
+
+  #con{
+  	width:100%;
+  	height:300px;
+  	line-height:20px;
+    resize:none;
+  }
+  .tishi{
+  	width: 100%;
+  	height:50px;
+  	border:1px solid #eee;
+  	line-height:25px;
+  	color:red;
+  }
+  .tj{
+  	text-align:center;
+  }
+</style>
+</head>
+<body>
+<form action="">
+<div class="box">
+    <div class="top">
+      <p>留言板</p>
+    </div>
+  	<textarea id="con" cols="30" rows="10" ></textarea>
+  	<div class="tishi">您可以输入40个字符，已经输入0个字符，还剩下40个字符
+    </div>
+    <div class="tj">
+      <input id="btn" type="button" value="提交">
+  </div>
+</div>
+</form>
+</body>
+</html>

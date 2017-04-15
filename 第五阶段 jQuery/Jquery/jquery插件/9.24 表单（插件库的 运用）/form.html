@@ -1,0 +1,58 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+<script src="js/jquery-3.1.0.js"></script>
+<script src="js/jquery.validate.js"></script>
+<script src="js/messages_zh.js"></script>
+<style>
+	span{
+	  color:red;
+	}
+</style>
+</head>
+<body>
+	<form action="" name="myform" class="myform">
+	  用户名:<input type="text" name="user" class="user" users="true">	
+	  <br>	
+	  账号：<input type="text" name="username" class="username">
+	  <br>
+	  密码：<input type="password" name="ps1" id="ps1">
+	  <br>
+	  确认密码：<input type="password" name="ps2">
+	  <br>
+	  提交：<input type="submit">
+	</form>
+</body>
+<script>
+	$(".myform").validate({
+	  rules:{
+	  	user:{
+	  		required:true
+	  	     },
+	  	username:{
+	  	   required:true,
+	  	   email:true   
+	  	},
+	  	ps1:{
+	  	   required:true
+	  	},
+	  	ps2:{
+	  	   required:true,
+	  	   equalTo:"#ps1"
+	  	}
+	  },
+
+	  errorElement:"span"
+	})
+	
+// alidator函数自定义添加方法：
+	$.validator.addMethod("users",function(value,element){
+        var tel=/^[a-zA-Z][a-z0-9A-Z_-]{6,16}$/;
+        return tel.test(value)||this.optional(element);
+       },"以大写字母开头"
+		);
+  
+</script>
+</html>

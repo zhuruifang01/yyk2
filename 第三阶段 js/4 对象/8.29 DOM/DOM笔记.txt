@@ -1,0 +1,80 @@
+8.29
+三：DOM(document object model) 文档对象模型
+   document对象是DOM的核心。
+   可以操作内容、可以操作样式、可以操作属性
+
+四：属性：
+  1）document.URL;  //获取或设置当前文档的路径。
+  2) document.title;  //获取或设置当前文档的标题
+     document.title=" "; 【设置】
+
+  3) document.bgColor=" "; //设置文档的背景颜色
+  4）document.fgColor=" "; //文档的前景色【作用于文字font】
+
+五：方法：
+  1）document.write();   //识别html标签 【重写】
+ -------------------------------------------
+  补：
+  window.onload=function(){};//等待文档加载完成以后被触发的事件
+  文档加载的顺序：
+    (1) 文档的主体；
+    (2) 布局的结构；
+    (3) 图片
+    (4) 样式、javascript的代码
+    (5) onload事件内的代码
+---------------------------------------------
+//一、获取元素：
+ 2）document.getElementById("id名"); 
+        //通过id获取一个元素，转化为一个document对象。
+
+ 3) document.getElementsByTagName("标签名"); 
+       //(1)获取多个//结果为一个集合，操作时需要遍历
+       //(2)可以先通过ById()获取父元素，再获取其标签。
+
+ 4) document.getElementsByClassName("类名");
+     //结果为一个集合，操作时需遍历
+     //IE8以下版本不支持
+-------------------------------------------------
+8.30笔记：
+ 5）document.getElementsByName();
+    //表单元素，结果为一个集合
+
+//二：
+    1）document.all;  //获取所有元素
+    2）document.forms; //获取表单元素
+        document.forms[0];  document.forms.length;  
+    3) documemt.images;  //获取所有图片元素
+    4）document.links; //获取所有链接元素
+
+//三、操作内容：
+   1） 对象.innerHTML
+          //设置内容，获取内容【内容包括html标签和文字】
+
+   2） 对象.innerText
+          //设置内容，获取内容【内容只有文字】
+
+//四、操作属性：
+  1）对象.属性;
+      //获取，设置。添加。
+  2）【区别1）：可以操作不标准的属性】
+     对象.getAttribute("属性名"); 
+         //获取指定属性值【只获取到属性后面的内容】
+     对象.setAttribute("属性名","属性值");
+         //添加属性值
+
+//五、操作样式：
+    1.行内样式：
+      对象.style.属性名=" ";  
+            //可获取(只能获取行内样式的属性)，可设置
+      对象.style.cssText="width:200px;height:10px";
+
+    2.批量修改样式：
+      1）id
+      2) className
+
+    3.获取属性的值：
+      FF: getComputedStyle(对象名,null).属性名;
+      IE: 对象名.currentStyle.属性名;
+-----------------------------------------------      
+html补充：快捷方式
+ ul.类名>li.类名*3>img[src="img/$.jpg"]{文字}+h1{$$$}

@@ -1,0 +1,88 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+    <script>
+// 一：对象的创建：
+//     法一：
+//      var obj=new Object();
+//      alert(typeof obj);
+//     法二： 
+//      var obj2={};
+//      alert(typeof obj2);
+//     法三：
+//      function person(){}
+//      var lisi=new person();
+//      alert(typeof lisi);
+// 二：添加属性：
+// var lisi=new Object();
+// lisi.name="李四";
+// lisi.sex="男";
+// lisi.age=20;
+// lisi["id-card"]=12356789987456123;
+
+// 添加方法：
+// lisi.say=function(){
+// 	alert("我是"+this.name);
+// }
+// lisi["eat"]=function(){
+// 	alert(this.name+"会吃饭");
+// }
+// lisi.say();
+// lisi["eat"]();
+//=========================================
+ // 2、jason(节省)
+// 键值对：
+//  var zhangsan={
+//    name:"张三",
+//    sex:"男",
+//    age:25,
+//    "id-card":123456789987654321,
+//    say:function(){
+//    	alert(this.name+"会说话");
+//    }
+// }
+// // delete zhangsan.age; //删除对象的某个属性
+// // zhangsan=null;  //销毁对象
+// // 对象的遍历
+// for(i in zhangsan){
+// 	console.log(i); //i是对象的属性名
+//  console.log(zhangsan[i]);//属性值
+// }
+// 调用
+//  zhangsan.say();
+// alert(zhangsan["id-card"]);
+
+//====================================
+ // 3、构造器（构造函数）
+ // function person(name,sex,age,card){
+ // 	this.name=name;  //this指 构造函数实例化出来的对象
+ // 	this.sex=sex;
+ // 	this.age=age;
+ // 	this["id-card"]=card;
+ // 	this.sing=function(){
+ // 		alert(this.name+"会唱歌");
+ // 	}
+ // }
+ // var zhaosi=new person("赵四","男",40,100001000000);
+ // var wangwu=new person("王五","男",30,152354823641);
+ // zhaosi.sing();
+ // alert(zhaosi["id-card"]);
+ // wangwu.sing();
+ // alert(wangwu["id-card"]);
+// ==================================================================
+// ==================================================================
+
+
+
+
+
+</script>
+
+
+</head>
+<body>
+	
+</body>
+</html>

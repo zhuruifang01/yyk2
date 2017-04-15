@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>打字游戏</title>
+	<script src="js/function.js"></script>
+<style>
+	body{
+	  margin:0;
+	  width:100%;
+	  height:100%;
+	  font-size:34px;
+	  color:white;
+	  background-color:black;}
+	.box{
+		width:100%;
+		height:50px;
+		background-color:plum;
+		position:fixed;
+		margin:0 auto;
+		bottom:0;
+	}
+	.box div{
+		width:33.33%;
+		height:100%;
+        font-size:36px;
+        color:black;
+        float:left;
+        text-align:center;
+        line-height:50px;
+	}  
+</style>
+</head>
+<body>
+   <div class="box">
+   	 <div class="life">生命值:<span>5</span></div>
+   	 <div class="grup">关卡：<span>1</span></div>
+   	 <div class="grade">分值：<span>0</span></div>
+   </div>
+</body>
+<script>
+  var life=$("span",$(".life")[0])[0];
+  var grup=$("span",$(".grup")[0])[0];
+  var grade=$("span",$(".grade")[0])[0];
+  var gradenum=0;
+  var lifenum=5;
+  var grupnum=1;
+  var t;
+  var letterArr=["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"];  //一：1.先存进去26个字母
+  var cw=document.documentElement.clientWidth;
+  var ch=document.documentElement.clientHeight;
+  var nowletter=[];
+  var nowSpan=[];
+  function getletter(num){
+  	var newarr=[];
+  	for(var i=0;i<num;i++){ //2.在letterArr数组中随机取出num个字母，存入nowletter数组中
+  		var letter=letterArr[Math.floor(Math.random()*letterArr.length)];
+  	   while(checkRepeat(letter,nowletter)){ //3.调用checkRepeat。true 时，再重新取一个随机字母。
+  	   	 var letter=letterArr[Math.floor(Math.random()*letterArr.length)];
+  	   	 }
+       nowletter.push(letter);
+       newarr.push(letter);
+  	}
+  	return newarr;
+  }
+  function checkRepeat(val,arr){  //3.消除字母重复值
+  	for(var i in arr){
+  	  if(val==arr[i]){
+  	  	return true;
+  	  }
+  	}
+  	return false;
+  }
+ 
+  getletter(5);
+  // console.log(nowletter);
+
+ function createSpan(arr){ //二：1.创建span容器
+ 	for(var i=0;i<arr.length;i++){
+     var span=document.createElement("span");
+     span.innerHTML=arr[i];
+     var lefts=100+Math.random()*(cw-200);
+     var tops=Math.random()*25;
+      span.lefts=lefts;
+     while(checkPosition(lefts,nowSpan)){
+     	var lefts=100+Math.random()*(cw-200);
+      }
+     span.style.cssText="position:absolute;left:"+lefts+"px;top:"+tops+"px;"
+     document.body.appendChild(span);	
+     nowSpan.push(span);
+	}
+ }
+
+ createSpan(nowletter);
+ function checkPosition(val,arr){//2.span左距离 不重合
+    for(var i in arr){
+       if(val>=(arr[i].lefts-25) && val<=(arr[i].lefts+25)){
+       	//alert(1);
+       	return true;
+       	 }
+    } return false;
+ }
+
+ // 三：字母动起来
+  function move(){
+  	t=setInterval(function(){
+  		for(var i=0;i<nowSpan.length;i++){
+  		  nowSpan[i].style.top=nowSpan[i].offsetTop+10+"px";
+  		  if(nowSpan[i].offsetTop>ch-70){
+  		  	document.body.removeChild(nowSpan[i]);//在浏览器中移除
+            nowletter.splice(i,1);//删除
+  		  	nowSpan.splice(i,1);
+            createSpan(getletter(1));
+          //五:3.生命值：
+            lifenum--;
+            life.innerHTML=lifenum;
+            if(lifenum==0){
+              alert("game over!");
+              life.innerHTML=0;
+              clearInterval(t);
+                
+            }
+  		  }
+  		}
+  	},300);
+  }
+  move();
+
+  //四：键盘按下相应的字母，字母消失
+  function keyup(){
+  	document.onkeyup=function(e){
+  	  e=e||window.event;
+  	  var aa=String.fromCharCode(e.keyCode);
+  	  //alert(aa);
+  	  for(var i=0;i<nowSpan.length;i++){
+  	  	if(aa==nowSpan[i].innerHTML){
+  	  		document.body.removeChild(nowSpan[i]);//在浏览器中移除
+            nowletter.splice(i,1);//删除
+  		  	nowSpan.splice(i,1);
+            createSpan(getletter(1));
+
+            //五：1.分值累加：
+            gradenum++;
+            grade.innerHTML=gradenum;
+            if(gradenum==10){
+            	alert("恭喜过关！");
+            	clearInterval(t);
+            	//清空：
+            	for(var i in nowSpan){
+            		document.body.removeChild(nowSpan[i]);
+            	  }
+            	grade.innerHTML=0;
+            	gradenum=0;
+                nowletter=[];
+                nowSpan=[];
+                //五：2.第二关：
+                grupnum++;
+                grup.innerHTML=grupnum;
+                createSpan(getletter(6));
+                move();
+
+                  }
+            
+  	  	}
+  	  }
+  	}
+  }
+  keyup();
+
+</script>
+</html>

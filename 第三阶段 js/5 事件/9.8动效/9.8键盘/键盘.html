@@ -1,0 +1,61 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="function.js"></script>
+	<style>
+      .box{
+      	width:100px;
+      	height:100px;
+      	border:1px solid black;
+      }
+	</style>
+	<script>
+	 $(function(){
+	 	var text=$("#text");
+	 	var box=$(".box")[0];
+	 	var tijiao=$("#tijiao");
+      // text.onkeypress=function(){
+      // 	//console.log("长按");
+      // }
+      // text.onkeydown=function(){
+      // 	//console.log("按下");
+      //       //console.log(text.value);
+      // }
+      // text.onkeyup=function(){
+      //       //console.log("按下");
+      //       console.log(text.value);
+      // }
+
+      text.onkeydown=function(e){
+            e=e||window.event;
+            console.log("抬起");
+            console.log(e.keyCode);
+            console.log(e.altKey);
+            console.log(e.ctrlKey);
+            console.log(e.shiftKey);
+      }
+//点     
+      var btn=$("#btn");
+      btn.onclick=text.onkeydown=function(e){
+         e=e||window.event;
+         if(e.type=="click"){
+            box.innerHTML=text.value;
+         }else if(e.type=="keydown"){
+         if(e.ctrlKey&&e.keyCode==13)
+        
+         { box.innerHTML=text.value;};
+       }
+      } 
+     });
+      
+	</script>
+</head>
+<body>
+	<div class="box"></div><br/>
+	<input type="text" id="text">
+	<input type="button" id="btn" value="提交" id="tijiao">
+
+</body>
+</html>

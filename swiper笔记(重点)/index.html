@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	<link rel="stylesheet" href="css/swiper.css" />
+	<script src="js/zepto.min.js"></script>
+	<script src="js/swiper.jquery.js"></script>
+	<style>
+		.swiper-slide{
+			width:100%;
+			height:200px;
+		}
+		.swiper-pagination-bullet {  /*改变其余轮播点样式*/
+		    width: 8px;
+		    height: 8px;
+		    border-radius: 100%;
+		    background: #000;opacity: .2;
+		} 
+		.swiper-pagination-bullet-active{ /*改变当前轮播点样式*/
+			background:red;opacity:1;
+		}  
+	
+	    .contrast li{
+	    	list-style:none;
+	    	width:20px;height:20px;
+	    	background:red;
+	    	color:#fff;float:left;
+	    	margin-left:20px;
+	    }
+	    .contrast .active{
+	    	background:#000;
+	    }
+	</style>
+</head>
+<body>
+<!--选项卡-->	
+<div class="contrast">
+	<li class="active">1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</div>	
+<br /><br />
+<!--swiper-->	
+	<div class="swiper-container">
+       <div class="swiper-wrapper">
+		    <div class="swiper-slide" data-hash="slide1"  style="background:red">
+		    	<div class="swiper-zoom-container"> 
+		    	   <img src="img/aa.jpg" alt="" />
+		    	</div>   
+		    </div>
+		    <div class="swiper-slide" data-hash="slide2"  style="background:green">slider2</div>
+		    <div class="swiper-slide" data-hash="slide3"  style="background:blue">slider3</div>
+		    <div class="swiper-slide" data-hash="slide4"  style="background:red">slider4</div>
+       </div>
+       <div class="swiper-pagination"></div> <!--轮播小点-->
+       <div class="swiper-button-prev"></div>  <!--前进按钮-->
+       <div class="swiper-button-next"></div>  <!--后退按钮-->
+       <div class="swiper-scrollbar"></div>   <!--滚动条-->
+    </div>
+    <a href="#slide2" target="_blank">跳到第二个slide页面</a><!--直接跳转到指定的slide。-->
+
+</body>
+<script type="text/javascript">
+	var mySwiper = new Swiper('.swiper-container', {
+//		initialSlide :2,           //初始时显示第3屏
+		//direction : 'vertical', //滑动方向:竖向  【默认横向】
+//自动轮播		
+        //autoplay: 2000,         //2s自动轮播 
+        //speed:1000,             //滑动速度【默认300】
+        //autoplayDisableOnInteraction : false,  //操作之后离开,轮播再次开启
+        //autoplayStopOnLast : true,   //当切换到最后一个slide时停止自动切换。（loop模式下无效）。
+        
+        //grabCursor : true,    //鼠标覆盖Swiper时指针会变成手掌形状，拖动时指针会变成抓手形状
+        //hashnav:true,   //在每个slide处增加data-hash属性.直接跳转到指定的slide。
+        freeMode : false,  //slide滑动时只滑动一格，并自动贴合wrapper
+	    //freeMode : true,  //slide会根据惯性滑动且不会贴合
+	    //freeModeMomentum : false, //释放鼠标之后停止滑动  与freeMode : true,共同使用
+	    //slidesPerView : 2, //设置视图中一次显示2块  //设为 'auto' 则显示的个数由宽度决定
+	    //slidesPerGroup : 2,
+	    //spaceBetween : 20, //slide之间的距离
+	    //slidesPerColumn : 2,  //每列的slide数量
+	    //slidesOffsetBefore : 100,  //每次滑动与左边框的预设偏移量
+//切换方式
+        //effect : 'fade',// "fade"（淡入）"cube"（方块）"coverflow"（3d流）"flip"（3d翻转）
+        //preventClicks : false,  //当滑动时阻止意外的链接点击。
+        //preventLinksPropagation : false,   //当滑动时不触发点击。
+        //slideToClickedSlide:true, //例如slide1向slide2 swipe的过程中轻点slide1会回到slide1
+	    threshold : 100, //必须拖动大于100px后slide才会开始移动
+	    
+//轮播小点	    
+	    pagination : '.swiper-pagination', //轮播小点
+	    paginationType : 'bullets', //‘bullets’圆点（默认）。‘fraction’  分式 。‘progress’  进度条‘custom’ 自定义
+	    paginationClickable :true, //点击轮播点会切换
+//	    paginationBulletRender: function (swiper, index, className) {  //使小点带数字
+//       return '<span class="' + className + '">' + (index + 1) + '</span>';
+//      }
+//前进后退按钮
+//        prevButton:'.swiper-button-prev',   //前进按钮
+//        nextButton:'.swiper-button-next',   //后退按钮
+//滚动条        
+        //scrollbar:'.swiper-scrollbar', //滚动条
+        //scrollbarHide:false,  //滚动条不会自动隐藏
+        //scrollbarDraggable : true ,  //可以拖动滚动条
+        //scrollbarSnapOnRelease : true , //释放滚动条时slide自动贴合
+        
+        keyboardControl : true,  //可用键盘方向键控制slide滑动。
+        mousewheelControl : true,  //鼠标滚轮可滑动【若滑动方向改为竖直=>则类比fullpage】
+        mousewheelSensitivity : 1, //停止滚轮,滑动停止。【可设置滑动一次的位移】
+        
+//loop :true,  //循环【不可与自动轮播共同使用——>会抖动】
+        
+    //焦点:
+        zoom : true, //双击slide会放大，并且在手机端可双指触摸缩放。
+                     //在slide中增加类名swiper-zoom-container，
+        zoomMax :5, //放大倍数
+
+//回调函数:
+//1.点击——事件触发
+		//onTouchStart: function(swiper,even){ //点击——事件触发
+		//	  alert('点击——事件触发;');
+		//}    
+
+//3.最后一个slide时隐藏前进按钮
+//		onSlideChangeEnd: function(swiper){
+//		      if(swiper.isEnd){
+//				swiper.nextButton[0].style.display='none';
+//				}else{
+//				swiper.nextButton[0].style.display='block';
+//				}
+//		}
+
+//2.切换结束时
+//【选项卡一处:操作swiper,索引1234随着变化】
+	 onSlideChangeEnd: function(swiper){
+        //alert(swiper.activeIndex) //切换结束时，告诉我现在是第几个slide
+        $(".contrast li").removeClass("active").eq(swiper.activeIndex).addClass("active");
+     }	
+})
+mySwiper.bullets[1].style.border='1px solid #fff'; //第二个轮播小点加一像素白边。
+</script>
+<script>
+//【选项卡二处:操作索引1234,swipe随着切换】                //loop循环时不建议用
+    $(".contrast li").click(function(){
+    	var index=$(this).index();
+    	$(".contrast li").removeClass("active").eq(index).addClass("active");
+    	
+    	mySwiper.slideTo(index,500,false); //第二个参数为变化的时间
+    	
+    });
+</script>
+</html>

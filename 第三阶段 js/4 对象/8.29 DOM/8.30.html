@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+<style>
+	.box{
+		width:300px;
+		height: 100px;
+		border:1px solid black;
+	}
+	#idcss{
+		background-color:yellowgreen;
+		border-radius:15px;
+	}
+	.classcss{
+		background-color:pink;
+		width:400px;
+	}
+</style>
+<script src="function.js"></script>
+</head>
+<body>
+	<div class="box">
+		<h3>走自己的路，让别人说去吧！</h3>
+	</div>
+	<form action="">
+		<input type="button" value="复制" class="copy">
+	</form>
+	<div class="box"></div>
+	<br/><br/>
+    <a href="www.baidu.com" class="shuxing">操作属性的练习</a>
+</body>
+<script>
+ // alert(document.links.length);
+
+// 操作内容：
+	var box=getClass("box");
+	var copy=getClass("copy")[0];
+	
+	copy.onclick=function(){
+		// var aa=box.innerHTML;
+        // box2.innerHTML=aa;
+        // 或：
+        var aa=box[0].innerText;
+         box[1].innerText=aa;}
+
+// 操作属性：
+  var shuxing=getClass("shuxing")[0];
+  // alert(shuxing.href);  //获取
+  // shuxing.href="www.sougou.com"; //设置
+  // alert(shuxing.href);
+  // shuxing.title="这是百度";//添加
+  // alert(shuxing.title);
+
+  // alert(shuxing.getAttribute("href"));
+  //  shuxing.setAttribute("aa","bb");
+  // alert(shuxing.getAttribute("aa"));
+
+//操作样式  批量修改样式
+  box[0].onclick=function(){
+  	this.id="idcss";
+ }
+
+ box[1].onclick=function(){
+  	this.id="idcss";
+ }
+ box[1].onmouseover=function(){
+ 	this.className="box classcss";
+ }
+ box[1].onmouseout=function(){
+ 	this.className="box ";
+ 	// alert(getComputedStyle(this,null).width); //现代
+ 	// alert(this.currentStyle.width);//IE
+ 	alert(getStyle(this,"width"));
+ }
+
+</script>
+</html>

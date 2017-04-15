@@ -1,0 +1,55 @@
+
+表单 笔记：
+
+js
+一：获取表单 方式：
+ 1.直接获取：
+ 2.集合的方式
+  1）var login=document.forms[下标];  //下标：第几个form表单
+  2）var login=document.forms["form名"];
+  3）          document.forms.form名;
+  4）          document.form名;
+
+二：获取表单控件：
+   1）var aa=表单对象.elements;  //表单控件的一个集合
+   2）      aa[0];
+   3）      表单对象.elements.name名
+   4）      表单对象.elements.["name名"];
+   5）      表单对象.name名;
+
+三：表单以及表单控件的事件：
+  1)form表单：
+   onsubmit //提交时触发
+   onreset  //重置时
+  2）表单控件：
+   onblur   //失去焦点时
+   onfocus  //获取焦点时
+   onchange //内容改变并失去焦点时
+
+
+
+四：表单：
+ 1.属性：
+  1）action //接收请求的	URL
+  2）elements //表单中所有控件的集合
+  3）length   //表单控件个数
+  4）enctype //表单编码类型
+       enctype="multipart/form-data"【上传图片时用】
+
+ 2.方法：
+  submit(); //自动提交
+  reset();  //自动重置
+
+
+五：表单控件
+ 1.属性：
+  value //获取和设置值
+  disabled //是否禁用 true false 
+  type //控件类型
+  form //所在表单元素对象
+  readOnly //只读 Boolean【只可复制和读取】
+  name //字段名
+ 2.方法：
+   focus(); //获得焦点
+   blur()  //失去焦点
+   select() //选中文本控件中的所有文本

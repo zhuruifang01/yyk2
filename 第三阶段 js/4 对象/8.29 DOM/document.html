@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script>
+
+     window.onload=function(){  //等待文档加载完成以后被触发的事件
+// 1.属性：
+	alert(document.URL);
+	alert(document.title);
+	alert(document.title="标题1");
+	document.bgColor="pink";
+	document.fgColor="white";
+// 2.方法： document.getElementsByTagName("标签名"); 
+    var list=document.getElementsByTagName("li");
+    for(var i=0;i<list.length;i++){     //遍历
+    	list[i].style.background="yellow";  
+    }
+
+ // 2（2）
+    var father=document.getElementById("one");
+    var p=father.getElementsByTagName("p")[0];
+    p.style.fontSize="20px";
+    p.style.fontWeight="bold";
+    p.style.color="red";
+}
+
+  </script>
+
+</head>
+<body>
+   <h1>文档的文字</h1>
+
+   <ul>
+   	<li>001</li>
+   	<li>002</li>
+   	<li>003</li>
+   	<li>004</li>	
+   </ul>
+
+   <p>越努力就会越幸运越努力就会越幸运越努力就会越幸运越努力就会越幸运越努力就会越幸运越努力就会越幸运越努力就会越幸运</p>
+   <div id="one">
+   <p>越努力就会越幸运越努力就会越幸运越努力就会越幸运越努力就会越幸运越努力就会越幸运越努力就会越幸运越努力就会越幸运</p>
+
+   </div>
+
+   
+</body>
+
+
+
+
+</html>

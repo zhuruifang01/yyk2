@@ -1,0 +1,47 @@
+一、事件流：
+  当触发页面中任何一个元素添加事件时，会按一定的顺序来响应事件，
+事件的响应过程为事件流。
+
+二、事件流的分类：
+ 1.冒泡型：（默认;任何一款浏览器都支持）
+   从确定的(明确的)事件源到不确定的事件源依次  向上响应。
+ 2.捕获型：（IE8以及IE8以下版本不支持）
+   从不确定的事件源到确定的依次  向下响应。
+
+   绑定事件时： 对象.addEventListener(事件，事件处理程序，false)
+   false:冒泡型；
+   true:捕获型。
+
+三、
+1) 阻止事件流：【适合用于冒泡型】
+   IE：事件对象.cancelBubble=true;
+   FF: 事件对象.stopPropagation();
+
+  例如： 
+   box.onclick=function(e){
+        var e=e||document;
+        if(e.stopPropagation){   //FF  
+               e.stopPropagation();
+              }else{            //IE
+             e.returnValue=false; 
+              }
+   }
+
+2) 阻止浏览器的默认行为：
+   IE:e.returnValue=false;
+   FF:e.preventDefault();
+
+3) 阻止事件的默认行为：【a/submit/】
+   return false;
+
+四、事件委派(事件委托)
+  把子容器要绑定的事件委托给他们共同的父容器，执行时再交给子容器。
+  原理：冒泡型的事件流实现的。
+
+  e.target  //FF 获取目标事件源
+  e.srcElement; //IE
+  兼容：
+  var obj=e.target||e.srcElement;
+
+  场合：1.子元素很多，事件相同时。
+        2.需要操作用js追加的元素时。

@@ -1,0 +1,28 @@
+四、键盘笔记：
+  按下：onkeydown
+  抬起：onkeyup
+  长按：onkeypress
+
+  理解：
+  1.触发顺序：按下>长按>抬起
+  2. 按下：按下就会触发;
+     长按:按下以后，内容发生改变时才会被触发;
+
+  3.属性：
+    （1）  keyCode  //获取键盘码
+    
+        (字母的大写ASCII值)
+        //方向键：左37;上38;右39;下40
+        //空格32; 回车13; ctrl 17; alt 18; delete 46;
+
+    （2）判断【true/false】
+       1) altKey;  //判断是否为alt键
+       2) ctrlKey; //          ctrl
+       3) shiftKey //         shift键
+
+  
+
+
+
+
+  

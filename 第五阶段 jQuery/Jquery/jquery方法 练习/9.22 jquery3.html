@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>文档处理;事件</title>
+<script src="js/jquery-3.1.0.js"></script>
+<style>
+	#box{
+	  width:200px;
+	  height:200px;
+	  border:1px solid black;
+	}
+</style>
+</head>
+<body>
+  <div id="box">
+  	<h4>标题</h4>
+  </div>	
+</body>
+<script>
+// 文档处理	
+//1.内部插入
+// $("#box").append("<a></a>");
+</script>
+<script>
+//事件：
+ $("#box").mouseenter(function(){
+ 	$(this).css("background","red");
+ });
+ $("#box").mouseleave(function(){
+ 	$(this).css("background","white");
+ });
+
+ $("#box").on("click",function(){
+ 	$(this).css("background","green")});
+ $("#box").on("click","h4",function(){
+ 	$(this).css("background","yellow")});
+</script>
+
+</html>

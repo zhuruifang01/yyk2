@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+// 1.创建节点：
+    // 1)元素节点：
+	    var aa=document.createElement("a");   //创建一个a标签
+        document.body.appendChild(aa);          //追加(添加)元素
+    //2）文本节点：
+
+        var text=document.createTextNode("打开百度"); //创建文本
+        aa.appendChild(text);     //将文本添加到aa【a标签】
+
+//2.创建属性：
+   var href=document.createAttribute("href");
+   href.nodeValue="http:www.baidu.com";
+   aa.setAttributeNode(href);
+
+//aa.innerHTML="打开百度";
+// aa.href=""
+// aa.setAttribute("title",这是百度)
+</script>
+

@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>下拉菜单</title>
+	<script src="js/function.js"></script>
+	<script src="js/animate.js"></script>
+	<style>
+	   body,ul,li{margin:0;padding:0;list-style:none;}
+	   body{height:3000px;}
+	   a{color:black;text-decoration:none;}
+      .box{
+      	width: 1000px;
+      	height:50px;
+      	margin:0 auto;
+      	margin-top:300px;
+        }
+       .yiji{
+       	 width:20%;
+       	 height:50px;
+       	 background-color:#eee;
+       	 float:left;
+       	 line-height:50px;
+       	 text-align:center;
+       	 position:relative;
+       }
+       .yiji a:hover{
+       	 display:block;
+       	 background-color:black;
+       	 color:white;
+       	 width:100%;
+       	 height:50px;
+       }
+       .erji{
+       	position:absolute;
+       	left:0;
+       	top:50px;
+       	width:100%;
+
+       	height:0px;
+       	overflow:hidden;
+
+       }
+       .erji a{
+       	 display:block;
+       	 width:100%;
+       	 height:49px;
+       	 border-top:1px solid #eee;
+       	 background-color:pink;
+       }
+    </style>
+    <script>
+     $(function(){
+        var yiji=$(".yiji");
+        var erji=$(".erji");
+        var box=$(".box")[0];
+        for(var i=0;i<yiji.length;i++){
+          yiji[i].index=i; //存储下标
+          hover(yiji[i],function(){ //鼠标移入
+            var lis=$("li",erji[this.index]);
+            // alert(lis.length);
+            var li_height=lis[0].offsetHeight;
+            //alert(li_height);
+            animate(erji[this.index],{height:lis.length*li_height});
+          },function(){ //鼠标移出
+          	animate(erji[this.index],{height:0});
+          });
+       }
+//2.
+   
+    var ot=box.offsetTop;
+    window.onscroll=function(){
+      document.documentElement.scrollTop=1;
+      var obj=document.documentElement.scrollTop?document.documentElement:document.body;
+      if(obj.scrollTop>=ot){
+         box.style.cssText="position:fixed;top:0;left:0;right:0;margin:0 auto;"
+       }else{ box.style.cssText=""}
+    }
+       
+       
+     });
+    </script>
+</head>
+<body>
+	<div class="box">
+		<div class="yiji">
+			<a href="">首页</a>
+			<ul class="erji">
+				<li style="display:none"><a href=""></a></li>
+			</ul>
+    </div>
+    <div class="yiji">
+			<a href="">新闻</a>
+			<ul class="erji">
+				<li><a href="">国内新闻</a></li>
+				<li><a href="">国外新闻</a></li>
+				<li><a href="">国际新闻</a></li>
+			</ul>
+    </div>
+    <div class="yiji">
+			<a href="">商品分类</a>
+			<ul class="erji">
+				<li><a href="">女装</a></li>
+				<li><a href="">女装</a></li>
+				<li><a href="">女装</a></li>
+				<li><a href="">女装</a></li>
+			</ul>
+    </div>
+    <div class="yiji">
+			<a href="">会员</a>
+			<ul class="erji">
+				<li><a href="">个人中心</a></li>
+				<li><a href="">男装</a></li>
+			</ul>
+    </div>
+    <div class="yiji">
+			<a href="">关于我们</a>
+			<ul class="erji">
+				<li><a href="">联系电话</a></li>
+				<li><a href="">联系地址</a></li>
+			</ul>
+    </div>
+	</div>	
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>滚轮 放大缩小图片</title>
+	<script src="js/function.js"></script>
+	<script src="js/animate.js"></script>
+	<style>
+       img{
+       	 position:fixed;
+       	 left: 0;right:0;
+       	 top:0;bottom:0;
+       	 margin:auto;
+         }
+       .word{
+       	width: 100px;
+       	height: 50px;
+       	position:fixed;
+       	left: 0;right:0;
+       	top:0;bottom:0;
+       	margin:auto;
+       	background-color:red;
+       	text-align:center;
+       	line-height:50px;
+       	font-size:20px;
+       	color:white;
+       }
+	</style>
+	<script>
+	  $(function(){
+	  	var img=$("img")[0];
+        var word=$(".word")[0];
+        var ow=img.offsetWidth;
+        
+        mouseWheel(img,function(){   //向上 放大
+          var w=img.offsetWidth+10;
+          var bili=Math.ceil((1-ow/w)*100);
+          if(bili>=30){
+          	word.innerHTML="不能再放大";
+            return false;}
+          word.innerHTML=bili+"%";
+          img.style.width=w+"px";
+         },function(){   //向下 缩小
+          var w=img.offsetWidth-10;
+          var bili=Math.ceil((1-ow/w)*100);
+          if(bili<=-30){word.innerHTML="不能再缩小"; return false;}
+          word.innerHTML=bili+"%";
+          img.style.width=w+"px";
+          });
+      });
+	</script>
+</head>
+<body>
+   	 <img src="img/1.jpg" alt="">
+   	 <div class="word">0%</div>
+</body>
+</html>

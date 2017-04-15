@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+<title>Document</title>
+<script src="function.js"></script>
+<style>
+	.box{width:200px;
+	     height:200px;
+	     border:1px solid black;}
+	.bigbox{width:500px;
+	        height:500px;
+	        border:1px solid red;}
+</style>
+<script src="function.js"></script>
+</head>
+
+<body>
+	<div class="box"></div>	
+	<div class="bigbox"></div>				
+</body>
+<script>
+	function one(){
+		alert(1);
+       this.style.background="blue";
+		}
+	function two(){alert(2);}
+	function three(){alert(3);}
+	var box=$(".box")[0];
+	var bigbox=$(".bigbox")[0];
+//一、事件绑定：	
+	//box.onclick=one;
+	// FF:
+	// box.attachEvent("onclick",one);
+	// box.attachEvent("onclick",two);
+	// box.attachEvent("onclick",three);
+    // IE:
+	// box.addEventListener("click",one);
+	// box.addEventListener("click",two);
+	// box.addEventListener("click",three);
+	//兼容：
+	addEvent(box,"click",one);
+	addEvent(box,"click",two);
+	addEvent(box,"click",three);
+
+	removeEvent(box,"click",three);
+//二、事件对象的获取	
+      bigbox.onmousemove=function(e){
+           e=e||window.event;
+           // alert(e);
+           var cx=e.clientX;
+           var cy=e.clientY;
+           var sx=e.screenX;
+           var sy=e.screenY;
+           var ox=e.offsetX;
+           var oy=e.offsetY;
+           this.innerHTML="cx:"+cx+"----cy:"+cy+"<br>sx:"+sx+"----sy:"+sy+"<br>ox:"+ox+"----oy:"+oy;
+        }
+      
+
+
+
+</script>
+
+</html>					

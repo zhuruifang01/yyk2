@@ -1,0 +1,98 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="js/function.js"></script>
+	<script src="js/animate.js"></script>
+    <script src="js/banner2.js"></script>
+<style>
+    body,ul,li{
+    	margin:0;
+    	padding:0;
+    	list-style: none;
+    }
+    
+	.box{
+		width:1190px;
+		height:470px;
+		margin:0 auto;
+		border:1px solid black;
+		position:relative;
+	}
+	.imgsbox{
+	  width:100%;
+	  height:470px;
+	  position:relative;
+      /*overflow:hidden;*/
+    }
+    .imgsbox a{
+      position:absolute;
+      left:0;
+      top:0;
+    
+    }
+    
+   /* 轮播块*/
+    .btn{
+    	width:200px;
+    	height:20px;
+    	position:absolute;
+    	left:0;
+    	right:0;
+    	margin:0 auto;
+    	bottom:20px;
+    }
+    .btn li{
+    	width:45px;
+    	height:20px;
+    	background:#333;
+    	float:left;
+    	margin-right:3px;
+    }
+    .btn .btn_active{
+    	background:red;
+    }
+/*箭头 */   
+    .banner_jiantou{
+        width:30px;
+        height:60px;
+        background-color:black;
+        opacity:0.6;
+        font-size:30px;
+        color:white;
+        text-align:center;
+        line-height:60px;
+        position:absolute;
+        top:0;
+        bottom:0;
+        margin:auto 0;
+        display:none;
+     }
+     .jiantou_left{left:0;}
+     .jiantou_right{right:0;}
+     .banner_jiantou:hover{background-color:red;}
+</style>
+</head>
+<body>
+ <div class="box">
+	<div class="imgsbox">
+	 <a href="" class="img_active"><img src="img/1.jpg" alt=""></a>
+	 <a href=""><img src="img/2.jpg" alt=""></a>
+	 <a href=""><img src="img/3.jpg" alt=""></a>
+	 <a href=""><img src="img/4.jpg" alt=""></a>
+	</div>
+	<ul class="btn">
+		<li class="btn_active"></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+    <div class="banner_jiantou jiantou_left">&lt</div>
+    <div class="banner_jiantou jiantou_right">&gt</div>
+ </div>
+
+</body>
+</html>
+
+  

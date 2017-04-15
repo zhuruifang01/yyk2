@@ -1,0 +1,298 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+</head>
+<script>
+// 1.数组：
+// var arr=[1,2,3,4,5];
+
+// console.log(arr[0]);
+// console.log(arr[4]);
+// arr[5]=6;
+// console.log(arr[5]);
+// 2.数组的遍历：
+// for(var i=0;i<arr.length;i++)
+//   {
+//   	console.log(arr[i]);
+//   }
+
+ // 3.
+   // var arr=["",,123,"a",function aa(){}]; // 数组中可放任何数据
+   // alert(arr);
+   // alert(arr[1]);//未赋值时弹出undefined
+   // alert(typeof arr);//object类型
+
+ // 4.练习。遍历
+    // var arr=[1,2,3,4,5];
+    // for(var i=0;i<arr.length;i++)
+    //  {
+    //  	document.write(arr[i]+"<br/>");
+    //   }
+
+     // 法二：
+     // var arr=[1,2,3,4,5];
+     // var i=0;
+     // while(i<arr.length)
+     // {
+     //  document.write(arr[i]+"<br/>");	
+     //     i++;
+     // }
+
+    // 法三：for in 循环
+    // var arr=[1,2,3,4,5];
+    // var i=0;
+    // for(var i in arr){
+    //  document.write(arr[i]);
+    //   document.write("<br/>");   
+    // }   
+// 5.求数组 平均数
+// var arr=[67,78,90,100,56,77,89,60,98,79];
+// var sum=0;
+// for(i=0;i<arr.length;i++){
+//    sum+=arr[i];
+//     var ave=sum/arr.length;
+// }
+// document.write(ave);
+
+ // 5.输出数组最大值
+ // var arr=[1,2,35,4,6];
+ // var max=arr[0];
+ // for(var i=0;i<arr.length;i++){
+ //    if(arr[i]>max){
+ //       max=arr[i];
+ //    }
+ //  }
+ // document.write(max);
+
+// 6.维度
+//   一维数组：
+//     var arr=[1,2,3,4,5];
+//   二维数组：
+//     var arr1=[[1,2],
+//               [21,12,4,5,6],
+//               [66,54,3] ]
+//      arr1[0]=[1,2];
+//      arr1[0][1]=2;
+
+//6. 求出二维数组中最长的一个
+   // var arr1=[[1,2],
+   //            [21,12,4,5,6],
+   //            [66,54,3] ];
+   //  var chang=arr1[0];
+   //  for(var i=0;i<arr1.length;i++){
+   //    if(arr1[i].length>chang.length){
+   //      chang=arr1[i];
+   //    }
+   //   }
+   //  document.write(chang);
+
+// 7.求数组的最大值封装函数
+ // function Max(arr){
+ //    var max=arr[0];
+ //    for(var i=0;i<arr.length;i++){
+ //      if(arr[i]>arr[0]){
+ //      max=arr[i];
+ //      }
+ //    }
+ //   return max;
+ //  }
+
+// 8.删除数组中的空值
+  // var arr=[2,,"aa",true,,null,[1,2]];
+  // var newarr=[];
+  // var j=0;
+  // for(var i=0;i<arr.length;i++){
+  
+  //     if(arr[i]!==undefined){
+  //      newarr[j]=arr[i];
+  //      j++;
+  //    }
+  //   }
+  //  console.log(newarr);
+
+// 9.去除数组中重复的元素
+// 开关思想
+  // var arr=[1,2,2,3,1,2,4,5,6];
+  // var newarr=[]; var num=0;
+  // flag=true;  //设置开关
+
+  // for(var i=0;i<arr.length;i++){
+  //   for(var j=i+1;j<arr.length;j++){
+  //     if(arr[i]==arr[j]){
+  //       flag=false;  //开关关闭
+  //       break;
+  //     }
+  //      }
+  //   if(flag)
+  //    {newarr[num]=arr[i];
+  //    num++;}
+  //    flag=true;  //每次都重新再打开开关
+  //   }
+  // console.log(newarr);
+
+// 10.将arr 遍历出 1,3,2,1，4,6,7,5
+  // var arr=[1,[3,2,1],[4],[6,7],5];
+  // for(var i=0;i<arr.length;i++){
+  //   if(arr[i].typeof=='object'){
+  //    for(var j=0;j<arr[i].length;j++){
+  //     document.write(arr[i][j]+"&nbsp;");
+  //    }
+  //   }
+  //   else{
+  //     document.write(arr[i]+"&nbsp;");
+  //   }
+  // }
+
+// 11排序题(从小到大)
+ // var arr=[1,2,5,6,9,8,7,3,4];
+ // for(var i=0;i<arr.length;i++){
+ //   for(var j=i+1;j<arr.length;j++){
+ //    if(arr[i]>arr[j])
+ //    {
+ //      var c=arr[i];
+ //      arr[i]=arr[j];
+ //      arr[j]=c;
+ //    }
+ //   }
+ // }
+ // document.write(arr);
+//==============================================================================
+// 1. 排序并封装成函数
+// desc(降序) asc(升序)
+// function arrSort(a,type){
+// for(var i=0;i<a.length;i++){
+//   for(var j=i+1;j<a.length;j++){
+//      type=type||"asc";    //默认升序
+//      if(type="desc") {    //降序
+//         if(a[j]>a[i]){
+//          var c=a [i];
+//          a[i]=a [j];
+//          a[j]=c;
+//           }
+//         }
+//      else if(type="asc"){   //升序
+//         if(a[j]>a[i]){
+//          var c=a[i];
+//          a[i]=a[j];
+//          a[j]=c;
+//           }
+//      }
+//   }
+// }
+//    return a;
+// }
+
+// var arr1=[34,2,56,1,12];
+// var arr2=[10,5,2,3,9,0];
+// var arr3=[2,3,6,9]
+// document.write(arrSort(arr1,"desc")+"<br/>");
+// document.write(arrSort(arr2,"asc")+"<br/>");
+// document.write(arrSort(arr3,"")+"<br/>");
+
+// 13（1）浅拷贝
+// var arr1=[1,2,3,4,5];
+// var arr2=[];
+//  arr2=arr1;   //把地址给了arr2
+//  arr1[1]=20;
+//  alert(arr1[1]); //20
+//  alert(arr2[1]); //20
+
+// （2）深拷贝
+//  var arr1=[1,2,3,4,5];
+//  var arr2=[];
+//  var j;
+//  for(var i in arr1){
+//   arr2[i]=arr1[i]
+//  }
+//  arr1[1]=20;
+//  alert(arr1[1]); //20
+//  alert(arr2[1]); //2
+
+
+// 14： 写一个函数，实现对任意数组[添加]任意元素的功能
+// （arguments）
+
+// function add(){
+//  for(i=1;i<arguments.length;i++){
+//    arguments[0][arguments[0].length]=arguments[i];
+//  }
+//  return arguments[0];
+// }
+// var arr1=[1,2,3];
+// console.log(add(arr1,"a",'b',9));
+
+// 15删除数组中的一个元素
+//   var arr1=[1,2,3];
+//   function del(arr){
+//     var newarr=[];
+//     for(var i=0;i<arr.length-1;i++){
+//       newarr[i]=arr[i];
+//     }
+//     return newarr;
+//   }
+//   console.log(del(arr1));
+
+// 16.删除数组中的空值 的函数
+//   var arr1=[1,,,,,,,2,,,6];
+//   function del(arr){
+//      var newarr=[];
+//       var num=0;
+//      for(var i=0;i<arr.length;i++){
+//       if(arr[i]!=undefined){
+//         newarr[num]=arr[i]
+//         num++;
+//       }
+
+//      }
+//      return newarr;
+//   }
+//    console.log(del(arr1));
+
+// 17.(1)从数组中取出num个 随机的元素。
+
+// var arr1=["a","b","c","d","e","f"];
+// function arrRan(arr,num){
+//   var newarr=[];
+//   for(var i=0;i<num;i++){
+//     newarr[i]=arr[ parseInt(Math.random()*arr.length)];
+//   }
+//   return newarr;
+//  }
+// console.log(arrRan(arr1,4));
+
+
+// (2)从数组中取出num个 随机的元素;且取出的数不能重复
+var arr1=["a","b","c","d","e","f"];
+// 函数1：
+function arrRan(arr,num){       //在arr数组中取出num个随机数的函数
+  var newarr=[];                   //定义一个新数组
+  for(var i=0;i<num;i++){       //循环num次取随机数
+      var ran=arr[ parseInt(Math.random()*arr.length)]; //取出一个随机数并存入ran中
+     while(arrRepeat(ran,newarr)){        //调用函数2（true:执行）
+       ran=arr[ parseInt(Math.random()*arr.length)];           //执行:重新取随机数给ran
+    }
+    newarr[i]=ran;   //随机数赋给新数组
+ }
+  return newarr;   //返回新数组
+ }
+console.log(arrRan(arr1,4));    //调用函数arrRan,并输出返回值（新数组）
+  
+// 函数2：
+function arrRepeat(val,newa){
+    for(var i in newar){             //遍历新数组
+      if(val==newar[i]){return true;} //如果取出的随机值==新数组里的值，返回true(并停止)
+    }
+    return false;
+  }
+
+
+
+
+
+</script>
+<body>
+	
+</body>
+</html>

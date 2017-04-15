@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="js/function.js"></script>
+	<style>
+     .box{
+     	width:200px;
+     	height:200px;
+     	background-color:pink;
+     	position:absolute;
+     	left:0;
+     	top:0;
+     }
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+<script>
+    var speed=10;
+    var box=getClass("box")[0];
+    box.onclick=function(){
+    var t=setInterval(function(){
+    var lefts=parseInt(getStyle(box,"left"))+speed;
+    if(lefts>600){
+      clearInterval(t);
+      var t2=setInterval(function(){
+      var lefts=parseInt(getStyle(box,"left"))-speed;
+      if(lefts<0){
+     clearInterval(t2);
+     
+    }
+    box.style.left=lefts+"px";
+    },70);
+    }
+box.style.left=lefts+"px";
+},70);
+}
+
+</script>
+</html>

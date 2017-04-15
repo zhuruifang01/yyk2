@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>鼠标拖拽</title>
+	<style>
+	  .box{width:150px;
+	       height:200px;
+	       background-color:plum;
+	       position:fixed;
+	       left:0;
+	       top:0;}
+	</style>
+	<script src="js/function.js"></script>
+	<script>
+       $(function(){
+           var box=$(".box")[0]; 
+           var cw=document.documentElement.clientWidth;
+           var ch=document.documentElement.clientHeight;
+           var ow=box.offsetWidth;
+           var oh=box.offsetHeight;
+           box.onmousedown=function(e){
+           	//阻止浏览器的默认行为：
+             if(e.preventDefault){    //w3c
+               e.preventDefault();
+              }else{
+              e.returnValue=false; //IE
+              }
+            //鼠标到事件源box的距离 (不变化) 
+            var e=e||window.event;
+            var ox=e.offsetX;
+            var oy=e.offsetY;
+
+            document.onmousemove=function(e){
+             //阻止浏览器的默认行为：	
+             if(e.preventDefault){    //w3c
+               e.preventDefault();
+             }else{
+              e.returnValue=false; //IE
+             }
+              //到浏览器的距离
+             var e=e||window.event;
+             var cx=e.clientX;
+             var cy=e.clientY;
+             var x=cx-ox;
+             var y=cy-oy;
+//不出去浏览区框
+            if(x>=cw-ow){x=cw-ow;}
+            if(x<=0){x=0;}
+            if(y>=ch-oh){y=ch-oh;}
+            if(y<=0){y=0;}
+ 
+             box.style.left=x+"px";
+             box.style.top=y+"px";
+            }
+            
+            document.onmouseup=function(){
+              document.onmouseup=null;
+              document.onmousemove=null;
+            }
+           }
+          
+
+       });
+	</script>
+</head>
+<body>
+	<div class="box">好的哈空间是东风科技是贷款均开始的好的哈空间是东风科技是贷款均开始的好的哈空间是东风科技是贷款均开始的</div>
+</body>
+</html>

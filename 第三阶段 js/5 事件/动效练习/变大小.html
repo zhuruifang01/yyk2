@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script src="js/function.js"></script>
+	<style>
+     .box{
+     	width:200px;
+     	height:200px;
+     	background-color:pink;
+     	position:absolute;
+     	left:0;
+     	top:0;
+     }
+	</style>
+</head>
+<body>
+	<div class="box"></div>
+</body>
+<script>
+  var speed=10;
+  var box=getClass("box")[0];
+// 变大：
+var t,t1;
+function big(){
+    var w=parseInt(getStyle(box,"width"))+speed;
+    var h=parseInt(getStyle(box,"height"))+speed;
+    if(w>=400){
+        clearInterval(t);
+        t1=setInterval(small,60);
+
+    }
+    box.style.width=w+"px";
+    box.style.height=h+"px";
+
+    }
+// 变小
+function small(){
+        var w=parseInt(getStyle(box,"width"))-speed;
+        var h=parseInt(getStyle(box,"height"))-speed;   
+         if(w<=200){
+            clearInterval(t1);
+            t=setInterval(big,60);
+         }
+         box.style.width=w+"px";
+         box.style.height=h+"px";
+        }
+
+// 点击开始
+  box.onclick=function(){
+    t=setInterval(big,60)
+}
+   
+</script>
+</html>

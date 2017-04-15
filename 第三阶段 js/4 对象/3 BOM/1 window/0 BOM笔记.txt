@@ -1,0 +1,70 @@
+8.26笔记
+一：BOM:   (Browser Object Model)浏览器对象模型
+
+               window对象
+  history(历史对象)
+  location(地址栏对象)
+  document(文档对象)
+  navigator(浏览器信息)...........
+window对象是BOM的核心对象。
+==============================================
+二、window对象：
+ 属性：
+   1）获得浏览器位置：
+    IE:
+    window.screenLeft
+    window.screenTop
+    现代浏览器：
+    window.screenX
+    window.screenY
+  
+   2）获取浏览器窗口大小：
+    宽：document.documentElement.clientWidth;
+    高：document.documentElement.clientHeight;
+
+   3）获得浏览器的分辨率：
+     x轴：window.screen.width;
+     y轴：window.screen.height;
+
+   4)设置浏览器状态栏内容（IE)：
+     window.status="内容";
+
+ 方法：
+    1）窗体的移动（IE）：
+     window.moveBy(x,y);//相对于当前的位置移动
+     window.moveTo(x,y);//移动到指定的位置
+
+    2）窗体的尺寸：(IE)
+     window.resizeBy(width,height); //相对于当前的位置
+     window.resizeTo(width,height); //指定的大小
+
+    3）滚动条的位置：(无兼容问题)
+     window.scrollBy(x,y);
+     window.scrollTo(x,y);
+
+    4)时间函数：
+      (1)setInterval(callback,时间);   //单位：毫秒
+                  //重复执行回调函数callback。时间一到自动执行一次
+
+         清除时间函数：clearInterval(进程号);
+
+      (2)setTimeout(callback,时间);
+             //当时间一到，只执行一次回调函数
+        清除：clearTimeout(进程号);
+    5)警告框：alert();
+    6)输入框：prompt();
+    7)带确定与取消按钮的弹出框：
+       confirm("提示信息");
+    8)打开、关闭窗口：
+     (1打开)
+     open("新窗口的地址","窗口名","width=400,height=400");
+         【可设置内容：width=100, 窗口宽度
+                height=100,    高度
+                top=0,     窗口距离屏幕上方距离
+                left=0,                 左方
+                toolbar=no, 是否显示工具栏
+                menubar,scrollbars  表示菜单栏和滚动栏
+                resizable=no, 是否允许改变窗口大小
+                status=no,是否显示状态栏的信息】
+    (2关闭)
+    close();关闭窗口

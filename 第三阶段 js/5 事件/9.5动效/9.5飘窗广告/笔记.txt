@@ -1,0 +1,29 @@
+一、操作元素尺寸：
+   获取属性
+ 1. 对象.style.width
+ 2. id,className
+ 3. 调用函数 getStyle();
+ 4. 获取元素的实际宽高（width+border+padding）
+      对象.offsetWidth
+      对象.offsetHeight
+
+二、操作元素位置：
+   对象.offsetLeft  
+     1)元素没有定位时，为元素的左边缘到文档的距离;
+     2)元素有定位时,为距离父容器左边缘的距离。
+   对象.offsetTop
+
+三、获取具有滚动条元素的位置
+    对象.scrollTop;    元素超出父容器/文档上边的可视 距离 
+    对象.scrollLeft;   元素超出父容器/文档的左边距离 
+
+
+window.onscroll=function(){   //检测滚动条的位置是否发生变化（变化了，则触发函数事件）
+     兼容问题：
+	  //console.log(document.documentElement.scrollTop);  //文档超出可视窗口的距离【火狐】
+     //console.log(document.body.scrollTop);  //文档超出可视窗口的距离【谷歌，IE】 
+    解决办法：
+    var obj=document.documentElement.scrollTop?document.documentElement:document.body;
+    console.log(obj.scrollTop);
+}  
+

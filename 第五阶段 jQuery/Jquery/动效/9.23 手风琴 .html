@@ -1,0 +1,62 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>手风琴</title>
+    <script src="js/jquery-3.1.0.js"></script>
+    <style>
+       .box{
+       	 width:750px;
+       	 height: 370px;
+       	 border:1px solid red;
+       	 margin:0 auto;
+       	 position:relative;
+       	 overflow:hidden;
+       }
+       .box a{
+       	position: absolute;
+       	left:0;
+       }
+    </style>
+</head>
+<body>
+	<div class="box">
+		<a href=""><img src="img/1.jpg" alt=""></a>
+		<a href=""><img src="img/2.jpg" alt=""></a>
+		<a href=""><img src="img/3.jpg" alt=""></a>
+		<a href=""><img src="img/4.jpg" alt=""></a>
+		<a href=""><img src="img/5.jpg" alt=""></a>
+	</div>
+</body>
+<script>
+
+   var bw=$(".box").width(); //获取box宽
+   var iw=$(".box>a>img:eq(0)").width(); //获取一张图片宽
+   var sw=(bw-iw)/($(".box>a>img").length-1); //算出要显示的小块宽
+   alert(sw);
+//设置初始位置
+ $(".box>a").each(function(i,obj){
+    if(i==0){
+      $(obj).css({left:0});
+    }else{
+      $(obj).css({left:iw+sw*(i-1)});
+    } 
+ });
+
+ //鼠标指向 动效
+  $(".box>a").mouseover( function(){
+  	 var index=$(this).index();//记录鼠标指向的a的下标
+  	 $(".box>a").stop(false,false);
+     $(".box>a").each(function(i,obj){ //i为遍历的下标，obj为变量里的对象
+      if(i<=index){
+      	 $(obj).animate({left:i*sw});
+      }else{
+      	 $(obj).animate({left:iw+sw*(i-1)});
+      }
+        
+       });
+     }
+  	);
+   
+</script>
+</html>

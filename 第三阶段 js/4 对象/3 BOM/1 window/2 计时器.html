@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+<style>
+#box{
+	width:200px;
+	height: 100px;
+	border:1px solid black;
+	border-radius:8px;
+	margin:0 auto;
+	font-size:30px;
+	line-height: 100px;
+	box-shadow:0px 0px 20px black;
+}
+#box div{
+	width:33.33%;
+	height:33.33%;
+	float:left;
+	text-align:center;}
+</style>
+</head>
+<body>
+	<div id="box">
+		<div id="shi">00:</div>
+		<div id="fen">00'</div>
+		<div id="miao">00"</div>
+	</div>
+</body>
+<script>
+ var miao=document.getElementById("miao");
+ var fen=document.getElementById("fen");
+ var shi=document.getElementById("shi");
+ var m=0;
+ var f=0;
+ var s=0;
+ var t=setInterval(function(){
+ 	m++;
+ 	
+ 	if(m<10){miao.innerHTML='0'+m+'"';}
+ 	  else{miao.innerHTML=m+'"';}
+
+    if(m>=59){
+ 	m=-1;  //秒重置
+ 	f++;
+ 	if(f<10){fen.innerHTML='0'+f+"'";}
+ 	   else{fen.innerHTML=f+"'"}
+ 	
+ 	if(f>=59){  
+ 		f=-1;//分重置
+        s++;
+        if(s<10){shi.innerHTML='0'+s+':';}
+ 	    else{shi.innerHTML=s+':';}
+ 	    if(s>=24){
+ 	     s=-1;}//时重置
+ 	   }
+    }
+
+     },10);
+</script>
+
+</html>

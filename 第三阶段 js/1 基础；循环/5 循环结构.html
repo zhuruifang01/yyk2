@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+<script>
+ // 1、选择结构	
+  // var c= prompt("输入成绩","0");
+  // if(c>60&&c<=100){console.log("及格");}
+  //   else if(c<60&&c>=0)
+  //   	{console.log("不及格");
+  //        if(c<50){console.log("没救了")}
+  //        else{console.log("继续努力！")}
+  //       }
+
+  // 	 else if(c==60){console.log("你很幸运！");}
+  // 	 else{console.log("成绩录入错误");}
+
+  // 2练习：
+  // var username=prompt("用户名：","");
+  // var password=prompt("密码：","");
+  // if(username=="aaaaaa"&&password==123456)
+  //   {console.log("登录成功");}
+  //  else{console.log("用户名或密码错误");
+  //        if(username!="aaaaaa")
+  //    	   {console.log("用户名错误！");}
+  //        if(password!=123456)
+  //    	   {console.log("密码错误！"); }
+  //      }
+ 
+ // 3.switch
+  // var num1 = 8;
+  // var num2 = 8;
+  // var ysf = prompt();
+  // var result;
+  // switch(ysf)
+  //  {
+  //    case "+":result=num1+num2;break;
+  //    case "-":result=num1-num2;break;
+  //    case "*":result=num1*num2;break;
+  //    case "/":result=num1/num2;break;
+  //    case "%":result=num1%num2;break;
+  //    default:console.log("输入错误");
+  //  }
+  //  console.log(result);
+
+  // 4循环结构：
+   
+   // for(var i=1;i<=20;i++)
+   // {
+   // 	if(i%2!=0)
+   // 	console.log(i);
+   // }
+
+
+   // i=1;sum=0;
+   // while(i<=5)
+   // {
+   //   sum=sum+i;
+   //   i++;
+   // }
+   // console.log(sum);
+   
+//5 写一个4*4表格,且隔行换色
+//  document.write ("<table width='400' height='400' border='1'>" )
+//   for(var i=1;i<=4;i++)
+//   { if(i%2==0)
+//     {
+//       document.write ("<tr bgcolor='red'>")
+//     }
+//    else
+//     {
+//     document.write ("<tr bgcolor='green'>")
+//     }
+//    for(var j=1;j<=4;j++)
+//      {document.write ("<td></td>") }
+//   document.write ("</tr>")
+//   }
+// document.write ("</table>")
+
+//（1.） n行m列表格，且交叉换色
+//    function table(n,m,color1,color2) 
+//   {  document.write("<table width='200' height='200' border='1' >");
+//      for(var i=1;i<=n;i++){
+//       document.write("<tr>");
+//       for(var j=1;j<=m;j++){
+//         if(i%2==0 && j%2==0){
+//              document.write("<td bgcolor="+color1+"></td>");}
+//          else if(i%2==1 && j%2==1){
+//              document.write("<td bgcolor="+color2+"></td>");}
+//         else {
+//                document.write("<td bgcolor='white'></td>"); 
+//             }   
+//          }
+//       document.write("</tr>");
+//      }
+
+//     document.write("</table>");
+// }
+// var n=prompt("行","");
+// var m=prompt("列","");
+// var color1=prompt("颜色1","");
+// var color2=prompt("颜色2","");
+// table(n,m,color1,color2);
+
+// （2.）用字符串连接的方式实现表格
+//  function biaoge(n,m){
+//  var tab="<table width='200' height='200' border='1'>";
+//    for(var i=1;i<=n;i++){
+//      tab+="<tr>";
+//      for(var j=1;j<m;j++){
+//         if(i%2==0 && j%2==0){
+//         tab+="<td bgcolor='red'></td>"}
+//         else if(i%2==1 && j%2==1){
+//          tab+="<td bgcolor='green'></td>"   
+//         }
+//         else{
+//         tab+="<td bgcolor='white'></td>"    
+//         }
+//      }
+//      tab+="</tr>";
+//    }
+//  tab+="</table>"
+//  document.write(tab);
+// }
+// biaoge(10,10);
+
+// 6；应用题
+  // var i;
+  // for(i=101;i<200;i++)
+  //  {
+  //   if(i%3==1 && i%4==2 && i%5==3)
+  //   console.log(i) ;
+  //  }
+// 九九乘法表
+
+  for(var i=1;i<=9;i++)
+   {
+     for(var j=1;j<=i;j++)
+      {document.write(j+"*"+i+"="+j*i);
+       document.write("&nbsp")
+     }
+       document.write("<br/>");
+   }
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>Document</title>
+	<script>
+//1.用对象表示出数组，且不重复
+   // var arr=[23,12,4,12,5,4,6,12];
+   // var obj={};
+   // for(var i in arr){    //{23:true,12:true} 数组元素作为对象的属性名
+   // 	obj[arr[i]]=true;
+   // }
+   // console.dir(obj);
+
+
+   // var newarr=[];
+   // var num=0;
+   // for(var i in obj){   	  //遍历对象
+   // 	newarr[num]=Number(i);  //对象的属性名j 作为 新数组的属性值
+   // 	num++;
+   // }
+   // console.dir(newarr);
+//===========================================
+// 二：对象的特征：
+//  1.封装
+//   1）工厂函数：
+//   function iphones(){
+//   var phone=new Object();
+//   phone.price=4500;
+//   phone.call=function(){
+//   	alert("可以打电话");
+//   }
+//   return phone;
+// }
+
+// var iphone6=iphones();
+// iphone6.call();
+
+  // 2)构造+原型.
+//  function phone(price){
+//    this.price=price;
+//  }
+//  // 原型函数
+//  phone.prototype={
+//  	call:function(){
+//  		alert("可以打电话");
+//  	},
+//  	photo:function(){
+//  	 alert("可以照相");
+//  	}
+//  }
+// var iphone5=new phone(2000);
+// iphone5.call();
+// iphone5.photo();
+// var iphone5s=new phone(2500);
+// iphone5s.call();
+
+// 2.继承（构造，原型，继承）
+function person(name){         //person的构造函数(属性)
+	this.name=name;
+}
+person.prototype={                //person的原型（方法）
+	study:function(){
+		alert("好好学习，天天向上")
+	  },
+	work:function(){
+     alert(this.name+"完成了作业")
+     }
+  }
+
+function student(card,name,banji){     //student构造函数
+  this.card=card;
+  this.name=name;
+  this.banji=banji;
+}
+student.prototype=new person();      //studet原型继承person
+
+var xiaoming=new student(2016001,"小茗","前端班");
+xiaoming.work();
+
+
+
+
+</script>
+</head>
+<body>
+	
+</body>
+</html>

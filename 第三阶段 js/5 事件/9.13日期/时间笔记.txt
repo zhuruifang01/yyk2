@@ -1,0 +1,32 @@
+GMT:格林尼治时间。
+UTC:协调世界时间，
+
+一：创建日期对象：
+  var today=new Date();
+ 
+可传的参数格式：
+ 1. "时：分：秒 月/日/年"
+    "月/日/年 时:分:秒"
+ 2. 年,月,日,时,分,秒     【不加" "】
+ 3. 不传参数的话，会得到当前时间。 
+
+二：方法：
+1)获取日期的方法：
+ today.getDate();   //从Date对象返回一个月中的某一天【1-31】
+       getDay();    //一周中的某一天【0-6】
+       getMonth();  //月份【0-11】
+       getFullYear(); //年份
+       getHours();   //小时【0-23】
+       getMinutes(); //分钟【0-59】
+       getSeconds();  //秒数【0-59】
+       getMilliseconds(); //毫秒【0-999】
+       getTime();    //【1970年1月1日至今的毫秒数】
+       getTimezoneOffset(); //本地时间与格林威治标准时间（GMT）的分钟差
+
+1)设置日期的方法：
+   将get改为set,并传入参数。
+      setDate();  //设置Date对象中月中的某一天【1-31】
+
+   注：不存在setDay();
+   
+   setUTCDate(); 根据世界时设置。

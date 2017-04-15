@@ -1,0 +1,186 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>楼层跳转+9.12按需加载</title>
+	<script src="js/function.js"></script>
+	<script src="js/animate.js"></script>
+    <style>
+      body,ul,li{margin:0;padding:0;list-style:none;}
+      .banner{
+      	 width:1000px;
+      	 height:500px;
+      	 background-color:plum;
+      	 margin:0 auto;
+      	 line-height:500px;
+      	 text-align:center;
+      	 font-size:50px;
+      	 margin-top:20px;
+      	}
+       .floor{
+       	width:1000px;
+       	height:500px;
+       	border:1px solid black;
+       	margin:0 auto;
+       	margin-top:10px;
+        }
+       .jump{width:60px;
+       	     height:440px;
+       	     /*border:1px solid black; */
+       	     position:fixed;
+       	     right:0;
+       	     top:0;
+       	     bottom:0;
+       	     margin:auto 0;
+       	     display:none;
+       	 }
+       	.jumpnum{
+       		width:50px;
+       		height:60px;
+       		margin-right:10px;
+       		margin-top:10px;
+       		border:1px solid black;
+       		text-align:center;
+       		line-height:60px;
+       		font-size:20px;
+            font-weight:bold;
+       	}
+    </style>
+<script>
+	$(function(){
+	 var baihuo=$(".banner")[1];
+	 var jump=$(".jump")[0];
+	 var floor=$(".floor");
+	 var lis=$("li",jump);
+	 document.documentElement.scrollTop=1;
+	 var obj=document.documentElement.scrollTop?document.documentElement:document.body;
+	  var now=0;
+   window.onscroll=function(){
+	// 1.滚动到银泰百货时，右侧导航栏出现
+	    
+	 	if(obj.scrollTop>=baihuo.offsetTop){
+           jump.style.display="block";
+	 	}else{jump.style.display="none";}
+    //2. 随着楼层滚动，对应的右侧导航栏颜色点亮
+      for(var i=0;i<floor.length;i++){
+        if(obj.scrollTop+150>=floor[i].offsetTop){
+             now=i;
+          for(var j=0;j<lis.length;j++){
+           lis[j].style.background="white";
+          }
+          lis[i].style.background="rgba(255,0,0,0.5)";
+        }
+        if(obj.scrollTop+150<=floor[0].offsetTop){
+        	for(var j=0;j<lis.length;j++){
+           lis[j].style.background="white";
+          }
+        }
+     }
+
+     //9.12 图片的 按需加载[滚动到相应的楼层出现在浏览器，图片才加载出来]  
+     for(var i=0;i<floor.length;i++){  //遍历楼层
+     	if(obj.scrollTop+document.documentElement.clientHeight>=floor[i].offsetTop){
+     	   var imgs=$("img",floor[i]);  //获取图片
+     	   for(var j=0;j<imgs.length;j++){ //遍历图片
+     	   	 var s=imgs[j].getAttribute("data-src");  //获取图片的data-src属性
+     	   	 imgs[j].setAttribute("src",s); //为src属性赋值
+     	   }
+     	}
+       // 可以不+document.documentElement.clientHeight 来更清楚看出效果来。
+     }
+
+
+    }
+    
+
+  
+    //3.点击时，楼层相应的变化
+ for(var i=0;i<lis.length;i++ ){
+       lis[i].aa=i;
+       lis[i].onclick=function(){
+         animate(obj,{scrollTop:floor[this.aa].offsetTop});
+        }
+  //4. 鼠标指向时，点亮
+       lis[i].onmouseover=function(){
+       	this.style.background="rgba(255,0,0,0.5)";
+       }  
+       lis[i].onmouseout=function(){
+       	if(now!=this.aa){
+       	this.style.background="white";
+          }
+        }      
+   }
+
+ 
+
+	});
+</script>
+</head>
+<body>
+	<div class="banner">banner</div>
+	<div class="banner">银泰百货</div>
+	<ul class="floor">
+		<h1>1</h1>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+	</ul>
+	<ul class="floor">
+		<h1>2</h1>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+	</ul>
+	<ul class="floor">
+		<h1>3</h1>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+	</ul>
+	<ul class="floor">
+		<h1>4</h1>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+	</ul>
+	<ul class="floor">
+		<h1>5</h1>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+	</ul>
+	<ul class="floor">
+		<h1>6</h1>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/1.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/2.jpg" alt=""></img>
+		<img src="img/加载中.jpg" data-src="img/3.jpg" alt=""></img>
+	</ul>
+<!-- 右侧 -->	
+	<ul class="jump">
+		<li class="jumpnum">1</li>
+		<li class="jumpnum">2</li>
+		<li class="jumpnum">3</li>
+		<li class="jumpnum">4</li>
+		<li class="jumpnum">5</li>
+		<li class="jumpnum">6</li>
+	</ul>
+</body>
+</html>

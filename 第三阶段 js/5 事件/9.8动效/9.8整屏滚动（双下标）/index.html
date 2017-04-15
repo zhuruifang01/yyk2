@@ -1,0 +1,128 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+	<title>整屏滚动（双下标方法）</title>
+	<script src="js/function.js"></script>
+	<script src="js/animate.js"></script>
+	<style>
+	  body,ul,li{margin:0;padding:0;list-style:none;}
+      .box{
+      	   margin:0 auto;
+      	   position:relative;
+      	   overflow:hidden;
+      	  }
+      .inner{
+      	     line-height:600px;
+      	     font-size:50px;
+      	     text-align:center;
+      	     color:white;
+      	     width:100%;
+      	     height:100%;
+      	     position:absolute;
+      	     top:0;
+      	     left:0;
+      	    }
+      .btnbox{
+      	    width:20px;
+      	    height:200px;
+      	    position:fixed;
+      	    right:20px;top:0;
+      	    bottom:0;
+      	    margin:auto 0;
+          }
+      .btnbox li{
+      	  width:20px;
+      	  height:20px;
+      	  background-color:black;
+      	  border-radius:10px;
+      	  margin-top:10px;}
+      .btnbox .active{
+      	height:40px;
+      	background-color:red;}
+	</style>
+	<script>
+      $(function(){
+        var box=$(".box")[0];
+        var btn=$("li",$(".btnbox")[0]);
+         var ch=document.documentElement.clientHeight;
+         var cw=document.documentElement.clientWidth;
+         box.style.height=ch+"px";   
+        
+        var inner=$(".inner");
+        for(var i=1;i<inner.length;i++){
+        	inner[i].style.top=ch+"px";
+        }
+
+        var now=0;
+        var next=0;
+        var flag=true;
+        function up(){
+          if(!flag){
+         	return;
+            }
+          flag=false;
+          next--;
+          if(next<=-1){
+          	  next=inner.length-1;
+          	 }
+          inner[next].style.top=0;
+          animate(inner[now],{top:ch});
+          animate(inner[next],{top:0},function(){flag=true;});
+          btn[now].className="";
+          btn[next].className="active";
+          now=next;
+        };
+        function down(){
+         if(!flag){
+         	return;
+            }
+          flag=false;
+          next++;
+          if(next>=inner.length){
+          	  next=0;
+          	 }
+          inner[next].style.top=ch+"px";
+          animate(inner[now],{top:-ch});
+          animate(inner[next],{top:0},function(){flag=true});
+          btn[now].className="";
+          btn[next].className="active";
+          now=next;
+        };
+        mouseWheel(box,up,down); 
+
+       for(var i=0;i<btn.length;i++){
+           btn[i].index=i;
+           btn[i].onclick=function(){
+           	next=this.index;
+           	if(next>now){
+           	   next=next-1;
+           	   down();}else if(next<now){
+           	   	next=next+1;
+           	    up();}else{
+           	    	return;
+           	    }
+           }
+        }
+      });
+    </script>
+</head>
+<body>
+   <div class="box">
+   	<div class="inner" style=background:blue>第1屏</div>
+   	<div class="inner" style=background:green>第2屏</div>
+   	<div class="inner" style=background:pink>第3屏</div>
+   	<div class="inner" style=background:plum>第4屏</div>
+   	<div class="inner" style=background:yellowgreen>第5屏</div>
+   	<div class="inner" style=background:#ccc>第6屏</div>
+   	<ul class="btnbox">
+   		<li class="active"></li>
+   		<li></li>
+   		<li></li>
+   		<li></li>
+   		<li></li>
+   		<li></li>
+   	</ul>
+   </div>
+</body>
+</html>
